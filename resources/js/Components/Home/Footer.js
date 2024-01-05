@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
 export default function Footer() {

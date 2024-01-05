@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link, usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import { Menu, Transition } from "@headlessui/react";
 import { ArrowDownIcon } from "@heroicons/react/20/solid";
 
