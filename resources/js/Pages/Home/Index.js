@@ -1,5 +1,5 @@
 import Main from "@/Layouts/Home/Main";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/inertia-react";
 import React, { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
