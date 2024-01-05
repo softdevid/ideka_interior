@@ -1,6 +1,6 @@
 import Main from "@/Layouts/Admin/Main";
 import { PencilSquareIcon, XMarkIcon } from "@heroicons/react/20/solid";
-import { Head, Link, router } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/inertia-react";
 
 const BannerIndex = ({ title, banner, uploadPresetName, cloudName }) => {
     console.log(banner)

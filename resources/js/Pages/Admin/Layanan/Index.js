@@ -1,5 +1,6 @@
 import Main from "@/Layouts/Admin/Main";
-import { Head, Link, router } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/inertia-react";
+
 import axios from "axios";
 import { useState } from "react";
 

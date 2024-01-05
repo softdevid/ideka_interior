@@ -1,5 +1,5 @@
 import Main from "@/Layouts/Admin/Main";
-import { router } from "@inertiajs/react";
+import { router } from "@inertiajs/inertia-react";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 // Import toastify css file
 import "react-toastify/dist/ReactToastify.css";
 
-const Index = ({profil}) => {
+const Index = ({ profil }) => {
 
     const [errors, setErrors] = useState({})
 
@@ -36,62 +36,62 @@ const Index = ({profil}) => {
 
     const uploadLogo = () => {
         var myWidget = window.cloudinary.createUploadWidget({
-          cloudName: 'dodb6pecp',
-          sources: ['local', 'camera', 'unsplash'],
-          uploadPreset: 'h7dk2ojx',
-          maxFiles: 1,
-          folder: 'logo'
+            cloudName: 'dodb6pecp',
+            sources: ['local', 'camera', 'unsplash'],
+            uploadPreset: 'h7dk2ojx',
+            maxFiles: 1,
+            folder: 'logo'
         }, (error, result) => {
-          if (!error && result && result.event === "success") {
-            // console.log('Done! Here is the image info: ', result.info);
-            // setImage((prev) => [...prev, ({ url: result.info.url, public_id: result.info.public_id })]);
-            const newOptions = {...values};
-            newOptions.logoImgUrl = result.info.url;
-            newOptions.logoImgName = result.info.public_id;
-            setValues(newOptions);
-          }
+            if (!error && result && result.event === "success") {
+                // console.log('Done! Here is the image info: ', result.info);
+                // setImage((prev) => [...prev, ({ url: result.info.url, public_id: result.info.public_id })]);
+                const newOptions = { ...values };
+                newOptions.logoImgUrl = result.info.url;
+                newOptions.logoImgName = result.info.public_id;
+                setValues(newOptions);
+            }
         }
         )
         myWidget.open();
-      }
+    }
 
     function submit() {
         // console.log(values)
         axios.patch(`/admin/profil/${profil.id}`, values)
-        .then((res) => {
-            toast.success(res.data.data, {
-                position: toast.POSITION.TOP_CENTER
-              });
+            .then((res) => {
+                toast.success(res.data.data, {
+                    position: toast.POSITION.TOP_CENTER
+                });
 
-          })
-          .catch((err) => setErrors(err.response.data.errors));
+            })
+            .catch((err) => setErrors(err.response.data.errors));
     }
     console.log(values.logoImgUrl)
     return (
         <>
             <div className="grid md:grid-cols-2 gap-4">
-            <div className="my-2">
-                <label>Nama Perusahaan</label>
-                <input name="namaPerusahaan" onChange={handleChange} value={values.namaPerusahaan} className="block w-full rounded-md" />
-            </div>
-            <div className="my-2">
-                <label>Email</label>
-                <input name="email" onChange={handleChange} value={values.email} className="block w-full rounded-md" />
-            </div>
+                <div className="my-2">
+                    <label>Nama Perusahaan</label>
+                    <input name="namaPerusahaan" onChange={handleChange} value={values.namaPerusahaan} className="block w-full rounded-md" />
+                </div>
+                <div className="my-2">
+                    <label>Email</label>
+                    <input name="email" onChange={handleChange} value={values.email} className="block w-full rounded-md" />
+                </div>
             </div>
             <div className="grid md:grid-cols-2 gap-4">
-            <div className="my-2">
-                <label>No Hp/Wa</label>
-                <input name="noHp" onChange={handleChange} value={values.noHp} className="block w-full rounded-md" />
-            </div>
-            <div className="my-2">
-                <label>Embed Google Maps</label>
-                <input name="maps" onChange={handleChange} value={values.maps} className="block w-full rounded-md" />
-            </div>
-            <div className="my-2">
-                <label>Logo (tidak wajib)</label>
-                {values.logoImgName ? <img src={`https://res.cloudinary.com/dodb6pecp/image/upload/ar_0.5,c_fill,g_auto,w_433/q_auto/f_auto/${values.logoImgName}`} className="w-20 h-20" /> : <button name="logo" onClick={uploadLogo} className="block w-[70%] rounded-md border-2">Upload Logo</button>}
-            </div>
+                <div className="my-2">
+                    <label>No Hp/Wa</label>
+                    <input name="noHp" onChange={handleChange} value={values.noHp} className="block w-full rounded-md" />
+                </div>
+                <div className="my-2">
+                    <label>Embed Google Maps</label>
+                    <input name="maps" onChange={handleChange} value={values.maps} className="block w-full rounded-md" />
+                </div>
+                <div className="my-2">
+                    <label>Logo (tidak wajib)</label>
+                    {values.logoImgName ? <img src={`https://res.cloudinary.com/dodb6pecp/image/upload/ar_0.5,c_fill,g_auto,w_433/q_auto/f_auto/${values.logoImgName}`} className="w-20 h-20" /> : <button name="logo" onClick={uploadLogo} className="block w-[70%] rounded-md border-2">Upload Logo</button>}
+                </div>
             </div>
             <div className="my-2">
                 <label>Alamat</label>
