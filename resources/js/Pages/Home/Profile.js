@@ -1,9 +1,8 @@
 import Main from "@/Layouts/Home/Main";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { useEffect } from "react";
-import React from "react";
-import { Head } from "@inertiajs/react";
+import React, { useEffect } from "react";
+import { Head } from "@inertiajs/inertia-react";
 
 const Profile = ({ title }) => {
     useEffect(() => {
