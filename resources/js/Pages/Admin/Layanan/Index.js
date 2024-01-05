@@ -1,12 +1,13 @@
 import Main from "@/Layouts/Admin/Main";
-import { Head, Link, router } from "@inertiajs/inertia-react";
+import { Head, Link } from "@inertiajs/inertia-react";
+import { Router } from "@inertiajs/inertia/types/router";
 
 const Index = ({ title, layanan }) => {
     const hapus = (id) => {
         console.log(id);
         // axios.delete(`/admin/layanan/${id}`)
         // .then((res) => console.log(res.data.data))
-        router.delete(`/admin/layanan/${id}`);
+        Router.delete(`/admin/layanan/${id}`);
     };
 
     return (

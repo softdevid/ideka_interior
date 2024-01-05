@@ -16,7 +16,7 @@
         "@inertiajs/inertia-react": "^0.8.0",
         "@inertiajs/progress": "^0.2.6",
         "@tailwindcss/forms": "^0.4.0",
-        "autoprefixer": "^10.4.2",
+        "autoprefixer": "10.4.5",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
@@ -29,6 +29,7 @@
         "@heroicons/react": "^2.1.1",
         "aos": "^3.0.0-beta.6",
         "flowbite": "^2.2.1",
-        "react-icons": "^4.12.0"
+        "react-icons": "^4.12.0",
+        "react-toastify": "^9.1.3"
     }
 }
