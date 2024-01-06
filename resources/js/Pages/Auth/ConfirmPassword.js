@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
+// import Guest from '@/Layouts/Guest';
+// import Input from '@/Components/Input';
+// import Label from '@/Components/Label';
+// import ValidationErrors from '@/Components/ValidationErrors';
+import { Head, useForm } from '@inertiajs/inertia-react';
 import Button from '@/Components/Button';
+import ValidationErrors from '@/Components/ValidationErrors';
 import Guest from '@/Layouts/Guest';
 import Input from '@/Components/Input';
 import Label from '@/Components/Label';
-import ValidationErrors from '@/Components/ValidationErrors';
-import { Head, useForm } from '@inertiajs/inertia-react';
 
 export default function ConfirmPassword() {
     const { data, setData, post, processing, errors, reset } = useForm({

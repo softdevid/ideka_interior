@@ -18,15 +18,18 @@ mix.js("resources/js/app.js", "public/js")
         require("autoprefixer"),
     ])
     .alias({
-        "@": "resources/js/*",
+        "@": "resources/js",
     });
 
-mix.webpackConfig({
-    stats: {
-        children: true,
-    },
-});
 
-if (mix.inProduction()) {
-    mix.version();
+// mix.webpackConfig({
+//     stats: {
+//         children: true,
+//     },
+// });
+
+if (!mix.inProduction()) {
+    mix.webpackConfig({
+        devtool: "inline-source-map",
+    });
 }

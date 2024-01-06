@@ -1,6 +1,6 @@
 import Main from "@/Layouts/Admin/Main";
 import { Head, Link } from "@inertiajs/inertia-react";
-import { Router } from "@inertiajs/inertia/types/router";
+
 import React, { useState } from "react";
 
 const Add = ({ title }) => {
@@ -27,10 +27,10 @@ const Add = ({ title }) => {
     console.log(values);
 
     function submit() {
-        // axios.post('/admin/layanan', values)
-        //     .then((res) => console.log(res))
+        axios.post('/admin/layanan', values)
+            .then((res) => console.log(res))
 
-        Router.post("/admin/layanan", values);
+        // router.post("/admin/layanan", values);
     }
 
     //gambar utama

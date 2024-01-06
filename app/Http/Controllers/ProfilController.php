@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profil;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return Inertia::render('Admin/Profil/Index', [
+            'title' => 'Profil',
+            'profil' => Profil::first(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -28,9 +29,6 @@ class ProfilController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -39,45 +37,45 @@ class ProfilController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Profil $profil)
     {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profil $profil)
     {
         //
     }
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Profil $profil)
     {
-        //
+        $profil->update([
+            'namaPerusahaan' => $request->namaPerusahaan,
+            'email' => $request->email,
+            'noHp' => $request->noHp,
+            'alamat' => $request->alamat,
+            'maps' => $request->maps,
+            'linkInstagram' => $request->linkInstagram,
+            'linkTwitter' => $request->linkTwitter,
+            'linkFacebook' => $request->linkFacebook,
+            'logoImgName' => $request->logoImgName ?? '',
+            'logoImgUrl' => $request->logoImgUrl ?? '',
+        ]);
+
+        return response()->json(['data' => 'Berhasil diubah']);
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Profil $profil)
     {
         //
     }
