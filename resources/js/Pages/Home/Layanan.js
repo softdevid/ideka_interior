@@ -1,13 +1,14 @@
 import Main from "@/Layouts/Home/Main";
-import { Head, Link } from "@inertiajs/inertia-react";
-import React, { useState } from "react";
+import { Head, Link, usePage } from "@inertiajs/inertia-react";
+import React, { useEffect, useState } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
+import Aos from "aos";
 
 const Layanan = ({ title }) => {
-    // const { url } = usePage();
-    // useEffect(() => {
-    //     AOS.refresh();
-    // }, []);
+    const { url } = usePage();
+    useEffect(() => {
+        Aos.refresh();
+    }, []);
 
     const tabsData = [
         {
@@ -68,44 +69,50 @@ const Layanan = ({ title }) => {
                             </p>
                         </div>
                     </div>
-                    <div className="flex flex-col lg:flex-row justify-between gap-4">
-                        <div
-                            className="w-full lg:w-5/12 text-justify justify-center"
-                            data-aos="fade-down"
-                            data-aos-duration="1000"
-                            data-aos-delay=""
-                        >
-                            <h1 className="text-2xl lg:text-3xl font-bold leading-9 text-gray-800 pb-4">
-                                Judul Desain Interior
-                            </h1>
-                            <p className="font-normal text-base leading-6 text-gray-600 ">
-                                Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Reiciendis quis voluptates
-                                explicabo saepe minima sit eaque, molestiae
-                                incidunt magnam iste tenetur est totam qui magni
-                                laborum amet inventore unde fugit ratione
-                                impedit corporis modi non nemo?
-                            </p>
-                            <Link
-                                href="#"
-                                className="mt-4 inline-flex items-center right-0 justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
-                            >
-                                Nama Desain Interior &nbsp;
-                                <ArrowRightIcon className="h-6" />
-                            </Link>
-                        </div>
-                        <div className=" w-full self-end px-4 lg:w-1/2">
+                    <div className="flex items-center justify-center">
+                        <div className="flex items-center justify-center">
                             <div
-                                className="relative mt-4 lg:right-0 lg:mt-9"
-                                data-aos="zoom-in"
+                                className="w-full lg:w-5/12"
+                                data-aos="fade-down"
                                 data-aos-duration="1000"
                                 data-aos-delay=""
                             >
-                                <img
-                                    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
-                                    alt="Interior House"
-                                    className="relative z-10 mx-auto md:max-w-md max-w-full"
-                                />
+                                <div className="grid grid-cols-row auto-rows-max text-center">
+                                    <h1 className="text-2xl lg:text-3xl text-justify font-bold leading-9 text-gray-800 pb-4">
+                                        Judul Desain Interior
+                                    </h1>
+                                    <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
+                                        Lorem ipsum dolor sit, amet consectetur
+                                        adipisicing elit. Reiciendis quis
+                                        voluptates explicabo saepe minima sit
+                                        eaque, molestiae incidunt magnam iste
+                                        tenetur est totam qui magni laborum amet
+                                        inventore unde fugit ratione impedit
+                                        corporis modi non nemo?
+                                    </p>
+
+                                    <button
+                                        href="#"
+                                        className="mt-4 inline-flex items-center justify-start p-3 text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                                    >
+                                        Nama Desain Interior &nbsp;
+                                        <ArrowRightIcon className="h-6" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div className=" w-full lg:w-1/2">
+                                <div
+                                    className="relative mt-4 lg:right-0 lg:mt-9"
+                                    data-aos="zoom-in"
+                                    data-aos-duration="1000"
+                                    data-aos-delay=""
+                                >
+                                    <img
+                                        src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                        alt="Interior House"
+                                        className="relative z-10 mx-auto md:max-w-md max-w-full"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
