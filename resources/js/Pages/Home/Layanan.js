@@ -1,15 +1,37 @@
 import Main from "@/Layouts/Home/Main";
-import { Head, Link, usePage } from "@inertiajs/inertia-react";
-import React, { useEffect } from "react";
-import "aos/dist/aos.css";
-import AOS from "aos";
-import { ArrowLeftIcon } from "@heroicons/react/20/solid";
+import { Head, Link } from "@inertiajs/inertia-react";
+import React, { useState } from "react";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 
 const Layanan = ({ title }) => {
-    const { url } = usePage();
-    useEffect(() => {
-        AOS.refresh();
-    }, []);
+    // const { url } = usePage();
+    // useEffect(() => {
+    //     AOS.refresh();
+    // }, []);
+
+    const tabsData = [
+        {
+            label: "Desain Interior",
+            title: "Layanan Desain Interior Kami",
+            // content:
+            //     "Ut irure mollit nulla eiusmod excepteur laboris elit sit anim magna tempor excepteur labore nulla.",
+        },
+        {
+            label: "Gaya Interior",
+            title: "Gaya Interior",
+            // content:
+            //     "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
+        },
+        {
+            label: "Visualisasi 3D",
+            title: "Visualisasi 3D",
+            // content:
+            //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse alias culpa earum voluptatum, quia ea.",
+        },
+    ];
+
+    const [activeTabIndex, setActiveTabIndex] = useState(0);
+
     return (
         <>
             <Head title={title} />
@@ -19,181 +41,72 @@ const Layanan = ({ title }) => {
                         Layanan Kami
                     </p>
 
-                    <div className="mb-4 border-b border-gray-200 bg-gray-100 mx-4 md:mx-0">
-                        <ul
-                            className="flex flex-row justify-center items-center p-4 space-x-4 -mb-px text-sm font-medium text-center"
-                            id="myTab"
-                            data-tabs-toggle="#myTabContent"
-                            role="tablist"
-                        >
-                            <li>
-                                <Link
-                                    href="/interior-design"
-                                    className={
-                                        url === "/interior-design"
-                                            ? "active text-white bg-blue-700 rounded block py-2 px-5 font-bold"
-                                            : "text-black hover:text-white hover:bg-blue-700 block py-2 px-5 font-bold"
-                                    }
-                                    aria-current="page"
-                                >
-                                    Desain Interior
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/interior-styling"
-                                    className={
-                                        url === "/interior-styling"
-                                            ? "active text-white bg-blue-700 rounded block py-2 px-5 font-bold"
-                                            : "text-black hover:text-white hover:bg-blue-700 block py-2 px-5 font-bold"
-                                    }
-                                    aria-current="page"
-                                >
-                                    Gaya Interior
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/3d-visualization"
-                                    className={
-                                        url === "/3d-visualization"
-                                            ? "active text-white bg-blue-700 rounded block py-2 px-5 font-bold"
-                                            : "text-black hover:text-white hover:bg-blue-700 block py-2 px-5 font-bold"
-                                    }
-                                    aria-current="page"
-                                >
-                                    Visual 3D
-                                </Link>
-                            </li>
-                        </ul>
+                    <div>
+                        <div className="flex space-x-5 border-b items-center justify-center">
+                            {/* Loop through tab data and render button for each. */}
+                            {tabsData.map((tab, idx) => {
+                                return (
+                                    <button
+                                        key={idx}
+                                        className={`py-2 border-b-4 transition-colors duration-300 ${
+                                            idx === activeTabIndex
+                                                ? "border-blue-500"
+                                                : "border-transparent hover:border-gray-200"
+                                        }`}
+                                        // Change the active tab on click.
+                                        onClick={() => setActiveTabIndex(idx)}
+                                    >
+                                        {tab.label}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                        {/* Show active tab content. */}
+                        <div className="py-4">
+                            <p className="text-4xl mb-3 font-bold text-center">
+                                {tabsData[activeTabIndex].title}
+                            </p>
+                        </div>
                     </div>
-                    <div id="myTabContent" className="mx-4 md:mx-0 mb-4">
+                    <div className="flex flex-col lg:flex-row justify-between gap-4">
                         <div
-                            className="p-4 bg-gray-50 rounded-lg dark:bg-gray-800"
-                            id="semua"
-                            role="tabpanel"
-                            aria-labelledby="semua-tab"
+                            className="w-full lg:w-5/12 text-justify justify-center"
                             data-aos="fade-down"
                             data-aos-duration="1000"
-                            data-aos-delay="200"
+                            data-aos-delay=""
                         >
-                            <p className="text-3xl mb-3 font-bold text-center">
-                                VISI & MISI
+                            <h1 className="text-2xl lg:text-3xl font-bold leading-9 text-gray-800 pb-4">
+                                Judul Desain Interior
+                            </h1>
+                            <p className="font-normal text-base leading-6 text-gray-600 ">
+                                Lorem ipsum dolor sit, amet consectetur
+                                adipisicing elit. Reiciendis quis voluptates
+                                explicabo saepe minima sit eaque, molestiae
+                                incidunt magnam iste tenetur est totam qui magni
+                                laborum amet inventore unde fugit ratione
+                                impedit corporis modi non nemo?
                             </p>
-                            <p className="font-semibold text-base leading-6 text-gray-600 ">
-                                Menjadi mitra kreatif yang menginspirasi melalui
-                                teknologi dan seni, mewujudkan inovasi tak
-                                terbatas dalam pembuatan aplikasi, gambar
-                                digital, dan desain grafis.
-                            </p>
-                            <br />
-                            <p className="font-semibold text-base leading-6 text-gray-600 ">
-                                Misi saya meliputi:
-                            </p>
-                            <br />
-                            <ul className="list-decimal mb-4 mx-4">
-                                <li className="md:text-xl text-lg mb-3">
-                                    Inovasi Teknologi dan Kreativitas
-                                    <br />
-                                    <p className="md:text-base text-sm text-justify">
-                                        Saya bertekad untuk terus mendorong
-                                        batas-batas inovasi dalam teknologi dan
-                                        seni. Melalui kombinasi yang unik antara
-                                        keterampilan teknis dan imajinasi
-                                        artistik, saya akan menciptakan solusi
-                                        yang menarik, fungsional, dan memukau.
-                                    </p>
-                                </li>
-                                <li className="md:text-xl text-lg mb-3">
-                                    Kualitas Tak Tertandingi
-                                    <br />
-                                    <p className="md:text-base text-sm text-justify">
-                                        Saya berkomitmen untuk memberikan hasil
-                                        kerja dengan kualitas tak tertandingi.
-                                        Setiap proyek, baik besar maupun kecil,
-                                        akan melalui proses ketat pengawasan
-                                        kualitas untuk memastikan bahwa setiap
-                                        detail terpenuhi dengan sempurna.
-                                    </p>
-                                </li>
-                                <li className="md:text-xl text-lg mb-3">
-                                    Kolaborasi dan Keterlibatan Klien
-                                    <br />
-                                    <p className="md:text-base text-sm text-justify">
-                                        Saya percaya bahwa kolaborasi yang erat
-                                        dengan klien adalah kunci kesuksesan.
-                                        Saya akan selalu mendengarkan dengan
-                                        seksama kebutuhan dan visi klien,
-                                        mengintegrasikan umpan balik mereka
-                                        dalam setiap tahap proyek, dan menjaga
-                                        mereka tetap terlibat sepanjang
-                                        perjalanan kreatif.
-                                    </p>
-                                </li>
-                                <li className="md:text-xl text-lg mb-3">
-                                    Kemajuan Berkelanjutan
-                                    <br />
-                                    <p className="md:text-base text-sm text-justify">
-                                        Dunia teknologi dan desain terus
-                                        berkembang. Saya berkomitmen untuk tetap
-                                        terdepan dalam tren terbaru, alat, dan
-                                        metodologi. Saya akan terus belajar,
-                                        beradaptasi, dan mengambil
-                                        langkah-langkah maju untuk menjaga
-                                        layanan saya tetap relevan dan inovatif.
-                                    </p>
-                                </li>
-                                <li className="md:text-xl text-lg mb-3">
-                                    Keberlanjutan Lingkungan
-                                    <br />
-                                    <p className="md:text-base text-sm text-justify">
-                                        Dalam setiap proyek yang saya kerjakan,
-                                        saya akan mempertimbangkan dampak
-                                        lingkungan. Saya berkomitmen untuk
-                                        menggunakan praktik desain berkelanjutan
-                                        dan memilih opsi yang ramah lingkungan
-                                        kapan pun memungkinkan.
-                                    </p>
-                                </li>
-                                <li className="md:text-xl text-lg mb-3">
-                                    Pemberdayaan Tim Kreatif
-                                    <br />
-                                    <p className="md:text-base text-sm text-justify">
-                                        Tim saya adalah aset berharga. Saya akan
-                                        memberikan lingkungan kerja yang
-                                        mendukung kreativitas, inovasi, dan
-                                        pertumbuhan profesional. Saya juga akan
-                                        memastikan keseimbangan kerja yang sehat
-                                        untuk mendukung kualitas hidup tim saya.
-                                    </p>
-                                </li>
-                                <li className="md:text-xl text-lg mb-3">
-                                    Pengalaman Pengguna Terbaik
-                                    <br />
-                                    <p className="md:text-base text-sm text-justify">
-                                        Saya akan selalu memprioritaskan
-                                        pengalaman pengguna yang luar biasa
-                                        dalam setiap aplikasi yang saya
-                                        kembangkan. Dengan desain yang intuitif
-                                        dan fungsionalitas yang canggih, saya
-                                        bertujuan untuk menghasilkan produk yang
-                                        tidak hanya indah, tetapi juga mudah
-                                        digunakan.
-                                    </p>
-                                </li>
-                                <li className="md:text-xl text-lg mb-3">
-                                    Inspire dan Mendidik
-                                    <br />
-                                    <p className="md:text-base text-sm text-justify">
-                                        Saya ingin menjadi sumber inspirasi dan
-                                        pengetahuan dalam dunia teknologi dan
-                                        seni. Melalui blog, tutorial, dan konten
-                                        edukatif lainnya, saya berusaha untuk
-                                        berbagi pengetahuan saya dengan
-                                        komunitas lebih luas.
-                                    </p>
-                                </li>
-                            </ul>
+                            <Link
+                                href="#"
+                                className="mt-4 inline-flex items-center right-0 justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                            >
+                                Nama Desain Interior &nbsp;
+                                <ArrowRightIcon className="h-6" />
+                            </Link>
+                        </div>
+                        <div className=" w-full self-end px-4 lg:w-1/2">
+                            <div
+                                className="relative mt-4 lg:right-0 lg:mt-9"
+                                data-aos="zoom-in"
+                                data-aos-duration="1000"
+                                data-aos-delay=""
+                            >
+                                <img
+                                    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                    alt="Interior House"
+                                    className="relative z-10 mx-auto md:max-w-md max-w-full"
+                                />
+                            </div>
                         </div>
                     </div>
 
