@@ -69,7 +69,8 @@ class ProfilController extends Controller
             'logoImgUrl' => $request->logoImgUrl ?? '',
         ]);
 
-        return response()->json(['data' => 'Berhasil diubah']);
+        return redirect('/admin/profil')->with(['message' => 'Berhasil mengubah']);
+        // return response()->json(['data' => 'Berhasil diubah']);
     }
 
     /**
