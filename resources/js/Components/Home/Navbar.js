@@ -69,7 +69,7 @@ export default function Navbar() {
                     )}
                 </button>
             </div>
-            <div className="hidden lg:block z-50">
+            <div className="sm:hidden md:block lg:block z-50">
                 <div className="flex items-baseline space-x-4">
                     <Link
                         href="/"
@@ -110,11 +110,10 @@ export default function Navbar() {
                                             {({ active }) => (
                                                 <Link
                                                     href={link.href}
-                                                    className={`${
-                                                        active
-                                                            ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                                            : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
-                                                    }`}
+                                                    className={`${active
+                                                        ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
+                                                        : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                                        }`}
                                                 >
                                                     {link.label}
                                                 </Link>
@@ -216,11 +215,10 @@ export default function Navbar() {
                                                         {({ active }) => (
                                                             <Link
                                                                 href={link.href}
-                                                                className={`${
-                                                                    active
-                                                                        ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                                                        : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
-                                                                }`}
+                                                                className={`${active
+                                                                    ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
+                                                                    : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                                                    }`}
                                                             >
                                                                 {link.label}
                                                             </Link>
