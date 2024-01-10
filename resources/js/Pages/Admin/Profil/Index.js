@@ -1,12 +1,15 @@
 import Main from "@/Layouts/Admin/Main";
+import { CheckIcon } from "@heroicons/react/20/solid";
+import { Inertia } from "@inertiajs/inertia";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 // Import toastify css file
 import "react-toastify/dist/ReactToastify.css";
 
-const Index = ({ profil }) => {
+const Index = ({ profil, props }) => {
     const [errors, setErrors] = useState({});
+    const [notif, setNotif] = useState(false)
 
     const [values, setValues] = useState({
         namaPerusahaan: profil.namaPerusahaan,
@@ -31,38 +34,54 @@ const Index = ({ profil }) => {
         }));
     }
 
+    function message() {
+        return (
+            // <div className="sticky">
+            <div className="bg-green-500 text-white p-2 flex"><CheckIcon className="text-white w-6 h-6" /> Berhasil mengubah</div>
+            // </div>
+        )
+    }
+    // max - width: 430px;
+    // max - height: 200px;
+    // overflow: hidden;
+    // padding: 12px 48px 12px 12px;
+    // z - index: 99;
+    // font - weight: bold;
+    // position: relative;
+
     function submit() {
-        // console.log(values)
-        axios
-            .patch(`/admin/profil/${profil.id}`, values)
-            .then((res) => {
-                toast.success(res.data.data, {
-                    position: toast.POSITION.TOP_CENTER,
-                });
-            })
-            .catch((err) => setErrors(err.response.data.errors));
+        console.log(props)
+        Inertia.patch(`/admin/profil/${profil.id}`, values)
+        setNotif(!notif)
+        setTimeout(() => {
+            setNotif(false)
+        }, 3000);
     }
     return (
         <>
-            {/* {}
-        <div className="w-full p-4 bg-green-500"></div> */}
+            {notif && (
+                message()
+            )}
+
             <div className="grid md:grid-cols-2 gap-4">
                 <div className="my-2">
                     <label>Nama Perusahaan</label>
                     <input
                         name="namaPerusahaan"
+                        type="text"
                         onChange={handleChange}
                         value={values.namaPerusahaan}
-                        className="block w-full rounded-md"
+                        className="block w-full p-2 rounded-md"
                     />
                 </div>
                 <div className="my-2">
                     <label>Email</label>
                     <input
                         name="email"
+                        type="email"
                         onChange={handleChange}
                         value={values.email}
-                        className="block w-full rounded-md"
+                        className="block w-full p-2 rounded-md"
                     />
                 </div>
             </div>
@@ -71,18 +90,20 @@ const Index = ({ profil }) => {
                     <label>No Hp/Wa</label>
                     <input
                         name="noHp"
+                        type="number"
                         onChange={handleChange}
                         value={values.noHp}
-                        className="block w-full rounded-md"
+                        className="block w-full p-2 rounded-md"
                     />
                 </div>
                 <div className="my-2">
                     <label>Embed Google Maps</label>
                     <input
                         name="maps"
+                        type="text"
                         onChange={handleChange}
                         value={values.maps}
-                        className="block w-full rounded-md"
+                        className="block w-full p-2 rounded-md"
                     />
                 </div>
             </div>
@@ -98,6 +119,7 @@ const Index = ({ profil }) => {
             <div className="my-2">
                 <label>Deskripsi (kalau bisa dijadikan 2 paragraf)</label>
                 <textarea
+                    rows={10}
                     name="deskripsiPerusahaan"
                     onChange={handleChange}
                     value={values.deskripsiPerusahaan}
@@ -110,31 +132,34 @@ const Index = ({ profil }) => {
                 <label>Link Instagram</label>
                 <input
                     name="linkInstagram"
+                    type="text"
                     onChange={handleChange}
                     value={values.linkInstagram}
-                    className="block w-full rounded-md"
+                    className="block w-full p-2 rounded-md"
                 />
             </div>
             <div className="my-2">
                 <label>Link Twitter</label>
                 <input
                     name="linkTwitter"
+                    type="text"
                     onChange={handleChange}
                     value={values.linkTwitter}
-                    className="block w-full rounded-md"
+                    className="block w-full  p-2 rounded-md"
                 />
             </div>
             <div className="my-2">
                 <label>Link Facebook</label>
                 <input
                     name="linkFacebook"
+                    type="text"
                     onChange={handleChange}
                     value={values.linkFacebook}
-                    className="block w-full rounded-md"
+                    className="block p-2 w-full rounded-md"
                 />
             </div>
             <button
-                className="p-2 bg-blue-500 hover:bg-blue text-white"
+                className="p-2 bg-blue-500 hover:bg-blue rounded-md text-white"
                 onClick={submit}
             >
                 Simpan

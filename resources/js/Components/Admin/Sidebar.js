@@ -32,16 +32,11 @@ const Sidebar = () => {
             href: `/admin/layanan`,
             icon: ListBulletIcon,
         },
-        {
-            name: "Kontak",
-            href: `/admin/kontak`,
-            icon: PhoneIcon,
-        },
-        {
-            name: "Sosial Media",
-            href: `/admin/sosmed`,
-            icon: VideoCameraIcon,
-        },
+        // {
+        //     name: "Kontak",
+        //     href: `/admin/kontak`,
+        //     icon: PhoneIcon,
+        // },
         {
             name: "Banner slider",
             href: `/admin/banner`,
