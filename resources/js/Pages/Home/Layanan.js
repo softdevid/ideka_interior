@@ -1,33 +1,49 @@
 import Main from "@/Layouts/Home/Main";
-import { Head, Link, usePage } from "@inertiajs/inertia-react";
+import { Head } from "@inertiajs/inertia-react";
 import React, { useEffect, useState } from "react";
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
+import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import Aos from "aos";
 
 const Layanan = ({ title }) => {
-    const { url } = usePage();
     useEffect(() => {
         Aos.refresh();
     }, []);
 
     const tabsData = [
         {
-            label: "Desain Interior",
-            title: "Layanan Desain Interior Kami",
+            label: "Semua",
+            title: "Semua Layanan Kami",
             // content:
             //     "Ut irure mollit nulla eiusmod excepteur laboris elit sit anim magna tempor excepteur labore nulla.",
         },
         {
-            label: "Gaya Interior",
-            title: "Gaya Interior",
+            label: "Desain Interior",
+            title: "Desain Interior",
             // content:
             //     "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
         },
+    ];
+    const cardsData = [
         {
-            label: "Visualisasi 3D",
-            title: "Visualisasi 3D",
-            // content:
-            //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse alias culpa earum voluptatum, quia ea.",
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
+        },
+        {
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
+        },
+        {
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
         },
     ];
 
@@ -69,61 +85,40 @@ const Layanan = ({ title }) => {
                             </p>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center">
-                        <div className="flex items-center justify-center">
-                            <div
-                                className="w-full lg:w-5/12"
-                                data-aos="fade-down"
-                                data-aos-duration="1000"
-                                data-aos-delay=""
-                            >
-                                <div className="grid grid-cols-row auto-rows-max text-center">
-                                    <h1 className="text-2xl lg:text-3xl text-justify font-bold leading-9 text-gray-800 pb-4">
-                                        Judul Desain Interior
-                                    </h1>
-                                    <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
-                                        Lorem ipsum dolor sit, amet consectetur
-                                        adipisicing elit. Reiciendis quis
-                                        voluptates explicabo saepe minima sit
-                                        eaque, molestiae incidunt magnam iste
-                                        tenetur est totam qui magni laborum amet
-                                        inventore unde fugit ratione impedit
-                                        corporis modi non nemo?
-                                    </p>
-
-                                    <button
-                                        href="#"
-                                        className="mt-4 inline-flex items-center justify-start p-3 text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                    <div className="grid grid-cols-1 lg:grid-cols-3 mb-4">
+                        {cardsData.map((cards, card) => {
+                            return (
+                                <div className="flex items-center justify-center">
+                                    <div
+                                        key={card}
+                                        className="max-w-xs bg-white rounded-lg shadow mb-4"
+                                        data-aos="zoom-in"
+                                        data-aos-duration="1000"
+                                        data-aos-delay=""
                                     >
-                                        Nama Desain Interior &nbsp;
-                                        <ArrowRightIcon className="h-6" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className=" w-full lg:w-1/2">
-                                <div
-                                    className="relative mt-4 lg:right-0 lg:mt-9"
-                                    data-aos="zoom-in"
-                                    data-aos-duration="1000"
-                                    data-aos-delay=""
-                                >
-                                    <img
-                                        src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
-                                        alt="Interior House"
-                                        className="relative z-10 mx-auto md:max-w-md max-w-full"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                        <img src={cards.img} />
+                                        <div className="p-5">
+                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                                {cards.title}
+                                            </h5>
 
-                    <Link
-                        href="/"
-                        className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
-                    >
-                        <ArrowLeftIcon className="h-6" />
-                        &nbsp; Kembali
-                    </Link>
+                                            <p className="mb-3 font-normal text-gray-700">
+                                                {cards.highlight}
+                                            </p>
+                                            <a
+                                                href="#"
+                                                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                                            >
+                                                {cards.nameButton}
+                                                &nbsp;
+                                                <ArrowRightIcon className="w-4" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </>
