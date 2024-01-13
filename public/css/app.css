@@ -1522,6 +1522,9 @@ input[type="range"]::-ms-fill-lower {
 .list-disc {
   list-style-type: disc;
 }
+.list-none {
+  list-style-type: none;
+}
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -2747,6 +2750,10 @@ input[type="range"]::-ms-fill-lower {
     width: 41.666667%;
   }
 
+  .lg\:w-7\/12 {
+    width: 58.333333%;
+  }
+
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2787,6 +2794,11 @@ input[type="range"]::-ms-fill-lower {
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 :is(:where([dir="rtl"]) .rtl\:text-right) {

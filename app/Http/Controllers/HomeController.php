@@ -25,4 +25,10 @@ class HomeController extends Controller
             "title" => "Tentang Kami | Interior House",
         ]);
     }
+    public function detail_layanan()
+    {
+        return Inertia::render("Home/Detail", [
+            "title" => "Detail Layanan | Interior House",
+        ]);
+    }
 }
