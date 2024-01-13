@@ -8,6 +8,34 @@ const Detail = ({ title }) => {
     useEffect(() => {
         AOS.refresh();
     }, []);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        AOS.refresh();
+    }, []);
+
+    // Define your content for each page
+    const pagesContent = [
+        {
+            title: "Contoh Layanan Page 1",
+            content:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+            imageSrc: "https://example.com/image1.jpg",
+        },
+        {
+            title: "Contoh Layanan Page 2",
+            content:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+            imageSrc: "https://example.com/image2.jpg",
+        },
+        // Add more pages as needed
+    ];
+
+    const currentPageContent = pagesContent[currentPage - 1];
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
     return (
         <>
             <Head title={title} />
@@ -18,7 +46,7 @@ const Detail = ({ title }) => {
                     </h1>
                     <div className="flex flex-col lg:flex-row justify-between gap-8">
                         <div
-                            className="w-full lg:w-7/12 flex flex-col text-justify justify-center"
+                            className="w-full lg:w-5/12 flex flex-col text-justify justify-center"
                             data-aos="fade-down"
                             data-aos-duration="1000"
                             data-aos-delay=""
@@ -56,14 +84,11 @@ const Detail = ({ title }) => {
                                 data-aos-duration="1000"
                                 data-aos-delay=""
                             >
-                                <div className="block max-w-sm p-6 bg-white rounded-lg shadow">
-                                    <ul className="list-none">
-                                        <li>Lokasi :</li>
-                                        <li>Klien :</li>
-                                        <li>Ukuran :</li>
-                                        <li>Tahun :</li>
-                                    </ul>
-                                </div>
+                                <img
+                                    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                    alt="Interior House"
+                                    className="relative z-10 mx-auto md:max-w-xl max-w-full"
+                                />
                             </div>
                         </div>
                     </div>
@@ -74,8 +99,8 @@ const Detail = ({ title }) => {
                         data-aos-duration="1000"
                         data-aos-delay="200"
                     >
-                        <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">
-                            Cerita Singkat Saya
+                        <h1 className="text-2xl lg:text-3xl font-bold leading-9 text-gray-800 pb-4">
+                            Contoh Layanan
                         </h1>
 
                         <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
