@@ -1,32 +1,30 @@
 import Main from "@/Layouts/Home/Main";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Head } from "@inertiajs/inertia-react";
+import Pagination from "@/Components/Home/Pagination";
 
 const Detail = ({ title }) => {
     useEffect(() => {
         AOS.refresh();
     }, []);
     const [currentPage, setCurrentPage] = useState(1);
-
-    useEffect(() => {
-        AOS.refresh();
-    }, []);
-
     // Define your content for each page
     const pagesContent = [
         {
             title: "Contoh Layanan Page 1",
             content:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
-            imageSrc: "https://example.com/image1.jpg",
+            imageSrc:
+                "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
         },
         {
             title: "Contoh Layanan Page 2",
             content:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
-            imageSrc: "https://example.com/image2.jpg",
+            imageSrc:
+                "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
         },
         // Add more pages as needed
     ];
@@ -87,7 +85,7 @@ const Detail = ({ title }) => {
                                 <img
                                     src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
                                     alt="Interior House"
-                                    className="relative z-10 mx-auto md:max-w-xl max-w-full"
+                                    className="relative z-10 mx-auto md:max-w-xl max-w-md"
                                 />
                             </div>
                         </div>
@@ -99,62 +97,28 @@ const Detail = ({ title }) => {
                         data-aos-duration="1000"
                         data-aos-delay="200"
                     >
-                        <h1 className="text-2xl lg:text-3xl font-bold leading-9 text-gray-800 pb-4">
-                            Contoh Layanan
-                        </h1>
+                        <div className=" justify-start mb-4 pt-12">
+                            <h1 className="text-2xl lg:text-3xl font-bold leading-9 text-gray-800 pb-4">
+                                {currentPageContent.title}
+                            </h1>
 
-                        <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Cupiditate sequi vel a explicabo numquam
-                            adipisci. Quibusdam earum similique error dolore
-                            voluptates voluptas maxime adipisci porro, illum
-                            aliquam nostrum iste voluptatibus non, at sapiente
-                            minus rerum commodi quisquam accusantium. Doloremque
-                            exercitationem tenetur id aspernatur! Ipsa minus
-                            porro culpa, sit incidunt placeat impedit inventore
-                            perferendis reiciendis optio dolore temporibus nihil
-                            aperiam accusantium animi aspernatur illo neque
-                            sequi dicta numquam reprehenderit non. Recusandae
-                            adipisci facilis illo animi odit unde
-                            exercitationem! Maiores at aperiam accusamus fugiat
-                            incidunt, non, amet eveniet eligendi et voluptates
-                            ratione iste doloribus facilis repellat? Fugiat
-                            provident reprehenderit labore, sequi, optio nobis
-                            ab cumque recusandae, modi maiores voluptatibus.
-                            Voluptas animi iusto maxime ratione dicta libero
-                            impedit? Voluptatum repellendus reiciendis magni ut,
-                            aliquid ducimus. Blanditiis sunt labore recusandae
-                            commodi aliquam! Quisquam doloremque incidunt a
-                            facilis qui laborum placeat, numquam ullam
-                            necessitatibus autem consectetur, neque laudantium
-                            minus in aut totam, quam omnis perferendis!
-                        </p>
-                        <br />
-                        <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Commodi repellat delectus, sunt eos temporibus
-                            voluptate corrupti dignissimos quisquam doloribus
-                            ipsum at doloremque unde vitae amet harum
-                            aspernatur, itaque voluptatum necessitatibus sit
-                            ducimus aliquam saepe. Similique quibusdam at
-                            deleniti doloribus corporis atque beatae est
-                            veritatis optio delectus. Culpa, unde quidem,
-                            deserunt, expedita dolores rem facilis nihil
-                            perspiciatis repellendus ad quaerat at natus
-                            incidunt qui. Porro maxime repellendus fugiat quia
-                            corrupti beatae maiores dolorem itaque, placeat
-                            alias eius dicta sit possimus nostrum adipisci?
-                            Veniam minima dolor, fugit eligendi accusantium
-                            quidem dolores mollitia, doloremque nisi, itaque
-                            maiores ab! Rem fugiat quo nihil ab corrupti
-                            adipisci odio dignissimos, voluptatem beatae atque
-                            incidunt. Ut non, illo fugiat eligendi officia error
-                            temporibus eveniet omnis, quaerat maxime voluptates
-                            dolor porro neque suscipit veniam vel aliquam
-                            recusandae distinctio voluptate earum. Eveniet
-                            incidunt distinctio, soluta quisquam laboriosam
-                            explicabo maiores.
-                        </p>
+                            <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
+                                {currentPageContent.content}
+                            </p>
+                            <br />
+                            <img
+                                src={currentPageContent.imageSrc}
+                                alt="Content Image"
+                                className="mx-auto md:max-w-xl max-w-full"
+                            />
+                        </div>
+
+                        {/* Add Pagination component */}
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={pagesContent.length}
+                            onPageChange={handlePageChange}
+                        />
                     </div>
                 </div>
             </div>

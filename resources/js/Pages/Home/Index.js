@@ -66,20 +66,17 @@ const Index = ({ title }) => {
             </div>
             <div className="container mx-auto my-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mx-4 sm:mx-10 mb-4">
-                    {/* <div
+                    <div
                         className="flex justify-center items-center"
                         data-aos="zoom-in"
                         data-aos-duration="800"
                     >
-                        {props.icon.map((icons, index) => (
-                            <img
-                                key={index}
-                                className="w-auto sm:h-40 h-28"
-                                src={icons.link}
-                                alt={icons.nama}
-                            />
-                        ))}
-                    </div> */}
+                        <img
+                            className="w-auto lg:max-w-lg max-w-xs"
+                            src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                            alt=""
+                        />
+                    </div>
                     <div
                         className="text-gray-900 dark:text-white"
                         data-aos="fade-down"
