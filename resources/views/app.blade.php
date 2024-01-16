@@ -17,15 +17,15 @@
     @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
     @inertiaHead
-    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 </head>
 
 <body class="font-sans antialiased">
     @inertia
 
     {{-- @env('local')
-            <script src="http://localhost:8080/js/bundle.js"></script>
-        @endenv --}}
+    <script src="http://localhost:8080/js/bundle.js"></script>
+    @endenv --}}
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 </body>
 
 </html>

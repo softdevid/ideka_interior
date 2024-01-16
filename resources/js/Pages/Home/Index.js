@@ -1,7 +1,8 @@
 import Main from "@/Layouts/Home/Main";
+import { ArrowRightIcon, EnvelopeIcon, MapPinIcon, QuestionMarkCircleIcon } from "@heroicons/react/20/solid";
 import { Head, Link } from "@inertiajs/inertia-react";
 import React, { useState } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import { BsChevronCompactLeft, BsChevronCompactRight, BsTelephone } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 
 const Index = ({ title }) => {
@@ -14,6 +15,51 @@ const Index = ({ title }) => {
         },
         {
             url: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80",
+        },
+    ];
+
+    const cardsData = [
+        {
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
+        },
+        {
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
+        },
+        {
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
+        },
+        {
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
+        },
+        {
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
+        },
+        {
+            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
+            title: "Testing",
+            highlight:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
+            nameButton: "Lorem Ipsum",
         },
     ];
 
@@ -64,9 +110,10 @@ const Index = ({ title }) => {
                     ))}
                 </div>
             </div>
-            <div className="container mx-auto my-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mx-4 sm:mx-10 mb-4">
-                    <div
+
+            <div className="mx-auto my-4">
+                <div className="mt-4 mx-4 sm:mx-10 mb-4">
+                    {/* <div
                         className="flex justify-center items-center"
                         data-aos="zoom-in"
                         data-aos-duration="800"
@@ -78,106 +125,163 @@ const Index = ({ title }) => {
                         />
                     </div>
                     <div
-                        className="text-gray-900 dark:text-white"
+                        className="text-gray-900 dark:text-white container"
                         data-aos="fade-down"
                         data-aos-duration="1000"
                         data-aos-delay="100"
                     >
                         <h1 className="text-center text-3xl md:text-4xl mb-3 font-bold">
-                            Testing
+                            Spesialis
                         </h1>
                         <p className="mb-3 text-sm md:text-lg font-medium text-gray-900 dark:text-white">
+                            <b className="text-lg">"</b>Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Enim consectetur eum, ipsum pariatur, labore,
+                            consequuntur cupiditate illum tempore sed quasi qui
+                            reiciendis.
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Enim consectetur eum, ipsum pariatur, labore,
                             consequuntur cupiditate illum tempore sed quasi qui
-                            commodi iste illo aliquam tenetur autem ullam! Vel,
                             reiciendis.
+                            <b className="text-lg">"</b>
+
                         </p>
-                        <Link
+
+                        {/* <Link
                             href="/profil"
                             type="button"
                             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                         >
                             Lebih lanjut...
-                        </Link>
-                    </div>
-                </div>
-                <div className="border border-solid border-gray-400 my-4 mx-4"></div>
-                <div
-                    className="flex items-center justify-center"
-                    data-aos="fade-down"
-                    data-aos-duration="1000"
-                    data-aos-delay="300"
-                >
-                    <h1 className="mb-3 text-center text-3xl font-bold tracking-tight leading-none text-gray-900 md:text-4xl dark:text-white">
-                        Testing
-                    </h1>
-                </div>
-                {/* <div
-                    className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mx-7 md:mx-10 mb-3"
-                    data-aos="zoom-in"
-                    data-aos-duration="800"
-                    data-aos-delay="500"
-                >
-                    {props.dataWisata.slice(0, 6).map((wisata, index) => (
-                        <div
-                            key={index}
-                            className="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 transform transition hover:dark:bg-slate-700 duration-300 hover:scale-105 hover:bg-sky-100"
-                        >
-                            <div className="mb-2 flex justify-center items-center font-bold tracking-tight text-gray-900 dark:text-white">
-                                <img src={wisata.img} alt={wisata.title} />
-                            </div>
-                            <h5 className="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                {wisata.title}
-                            </h5>
-
-                            <p className="mb-3 text-center font-bold text-gray-700 dark:text-gray-400">
-                                {wisata.deskripsi}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-                <div
-                    className="flex items-center justify-center"
-                    data-aos="fade-down"
-                    data-aos-duration="1000"
-                    data-aos-delay="300"
-                >
-                    <Link
-                        href="/wisata/wisata-alam"
-                        type="button"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                    >
-                        Lebih lanjut...
-                    </Link>
-                </div> */}
-                <div className="border border-solid border-gray-400 my-4 mx-4"></div>
-                <div
-                    className="flex items-center justify-center"
-                    data-aos="fade-down"
-                    data-aos-duration="1000"
-                    data-aos-delay="300"
-                >
-                    <h1 className="mb-3 text-center text-3xl font-bold tracking-tight leading-none text-gray-900 md:text-4xl dark:text-white">
-                        KERJA SAMA
-                    </h1>
-                </div>
-
-                <div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-2 mb-4"
-                    data-aos="zoom-in"
-                    data-aos-duration="1000"
-                    data-aos-delay="200"
-                >
-                    {/* <div className="flex justify-center items-center">
-                        <img
-                            className="w-auto h-32 sm:h-40"
-                            src="https://res.cloudinary.com/dnmkw2715/image/upload/v1687844459/wisata_banyumas/icons/Universitas_Amikom_Purwokerto_pwpgiq.png"
-                            alt="Universitas Amikom Purwokerto"
-                        />
-                    </div> */}
+                        </Link> */}
                 </div>
             </div>
+            {/* <div className="border border-solid border-gray-400 my-4 mx-4"></div> */}
+            <h1 className="text-center text-3xl md:text-4xl mb-3 font-bold" data-aos="zoom-in"
+                data-aos-duration="1000"
+                data-aos-delay="200">
+                Layanan
+            </h1>
+            <div
+                className="flex items-center justify-center container mx-auto"
+                data-aos="fade-down"
+                data-aos-duration="1000"
+                data-aos-delay="300"
+            >
+                {/* <h1 className="mb-3 text-center text-3xl font-bold tracking-tight leading-none text-gray-900 md:text-4xl dark:text-white"> */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
+                    {cardsData.map((cards, card) => {
+                        return (
+                            <div className="flex items-center justify-center">
+                                <div
+                                    key={card}
+                                    className="max-w-xs bg-white rounded-lg shadow mb-4"
+                                    data-aos="zoom-in"
+                                    data-aos-duration="1000"
+                                    data-aos-delay=""
+                                >
+                                    <img src={cards.img} />
+                                    <div className="p-5">
+                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                            {cards.title}
+                                        </h5>
+
+                                        <p className="mb-3 font-normal text-gray-700">
+                                            {cards.highlight}
+                                        </p>
+                                        <a
+                                            href="#"
+                                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                                        >
+                                            {cards.nameButton}
+                                            &nbsp;
+                                            <ArrowRightIcon className="w-4" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+            <Link href="#" as="button" className="p-3 font-bold items-center justify-center block bg-blue-500 border-white border-2 hover:shadow-lg hover:shadow-black text-white hover:bg-blue-600 mx-auto mb-3">SELENGKAPNYA</Link>
+
+            <div className="bg-blue-500 w-full h-auto">
+                <div className="p-2">
+                    <div
+                        className="flex items-center justify-center mt-3"
+                        data-aos="fade-down"
+                        data-aos-duration="1000"
+                        data-aos-delay="300"
+                    >
+                        <h1 className="mb-3 text-center text-3xl font-bold tracking-tight leading-none text-white md:text-4xl dark:text-white">
+                            Portfolio
+                        </h1>
+                    </div>
+
+                    <div
+                        className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2 container mx-auto mb-4"
+                        data-aos="zoom-in"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                    >
+                        <Link href="#" className="group relative transform overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        </Link>
+                        <Link href="#" className="group relative transform overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        </Link>
+                        <Link href="#" className="group relative transform overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        </Link>
+                        <Link href="#" className="group relative transform overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        </Link>
+                        <Link href="#" className="group relative transform overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        </Link>
+                        <Link href="#" className="group relative transform overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        </Link>
+                    </div>
+                    <Link href="#" as="button" className="p-3 font-bold items-center justify-center block bg-blue-500 border-white border-2 hover:shadow-lg hover:shadow-black text-white hover:bg-blue-600 mx-auto mb-3">SELENGKAPNYA</Link>
+                </div>
+            </div>
+
+            <h1 className="text-3xl font-bold mt-3 text-center">Kontak</h1>
+            <div className="sm:block md:flex p-2 mx-3 container">
+                <div className="w-[50%] h-96 border"></div>
+                <div className="w-[50%] block">
+                    <div className="p-2 font-semibold text-xl inline-flex">
+                        <div className="h-14 w-14 text-white bg-blue-500 rounded-full flex items-center justify-center">
+                            <EnvelopeIcon className="w-7 h-7" />
+                        </div>
+                        <b className="mt-3 ml-2">softdev@gmail.com</b>
+                    </div>
+                    <div className="block">
+                        <div className="p-2 font-semibold text-xl inline-flex">
+                            <div className="h-14 w-14 text-white bg-blue-500 rounded-full flex items-center justify-center">
+                                <BsTelephone className="w-7 h-7" />
+                            </div>
+                            <b className="mt-3 ml-2">0877365735353</b>
+                        </div>
+                    </div>
+                    <div className="block">
+                        <div className="p-2 font-semibold text-xl inline-flex">
+                            <div className="h-14 w-14 text-white bg-blue-500 rounded-full flex items-center justify-center">
+                                <MapPinIcon className="w-7 h-7" />
+                            </div>
+                            <b className="mt-3 ml-2">SELABAYA, KALIMANAH, PURBALINGGA</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </>
     );
 };

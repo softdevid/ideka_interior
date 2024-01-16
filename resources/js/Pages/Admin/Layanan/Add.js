@@ -1,4 +1,5 @@
 import Main from "@/Layouts/Admin/Main";
+import { Inertia } from "@inertiajs/inertia";
 import { Head, Link } from "@inertiajs/inertia-react";
 
 import React, { useState } from "react";
@@ -27,8 +28,7 @@ const Add = ({ title }) => {
     console.log(values);
 
     function submit() {
-        axios.post('/admin/layanan', values)
-            .then((res) => console.log(res))
+        Inertia.post('/admin/layanan', { values, image })
 
         // router.post("/admin/layanan", values);
     }
@@ -47,16 +47,17 @@ const Add = ({ title }) => {
             (error, result) => {
                 if (!error && result && result.event === "success") {
                     console.log("Done! Here is the image info: ", result.info);
-                    // setImage((prev) => [...prev, ({ url: result.info.url, public_id: result.info.public_id })]);
-                    const newOptions = { ...values };
-                    newOptions.imgUrl = result.info.url;
-                    newOptions.imgName = result.info.public_id;
-                    setValues(newOptions);
+                    setImage((prev) => [...prev, ({ url: result.info.url, public_id: result.info.public_id })]);
+                    // const newOptions = { ...values };
+                    // newOptions.imgUrl = result.info.url;
+                    // newOptions.imgName = result.info.public_id;
+                    // setValues(newOptions);
                 }
             }
         );
         myWidget.open();
     };
+    console.log(image, values)
 
     const uploadVideo = () => {
         var myWidget = window.cloudinary.createUploadWidget(
@@ -98,7 +99,7 @@ const Add = ({ title }) => {
             <div className="grid grid-cols-3 gap-4">
                 <div>
                     <label>Nama Layanan</label>
-                    <input
+                    <input type="text"
                         onChange={handleChange}
                         name="namaLayanan"
                         className="p-2 rounded-md block w-full"
