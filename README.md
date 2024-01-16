@@ -1,3 +1,6 @@
+Hex codes: dark green-gray #283618, light gray-green #B7B7A4, soft gray #D4D4D4, off-white #F0EFEB
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

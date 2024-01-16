@@ -113,17 +113,6 @@ const Index = ({ title }) => {
 
             <div className="mx-auto my-4">
                 <div className="mt-4 mx-4 sm:mx-10 mb-4">
-                    {/* <div
-                        className="flex justify-center items-center"
-                        data-aos="zoom-in"
-                        data-aos-duration="800"
-                    >
-                        <img
-                            className="w-auto lg:max-w-lg max-w-xs"
-                            src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
-                            alt=""
-                        />
-                    </div>
                     <div
                         className="text-gray-900 dark:text-white container"
                         data-aos="fade-down"
@@ -133,7 +122,7 @@ const Index = ({ title }) => {
                         <h1 className="text-center text-3xl md:text-4xl mb-3 font-bold">
                             Spesialis
                         </h1>
-                        <p className="mb-3 text-sm md:text-lg font-medium text-gray-900 dark:text-white">
+                        <p className="mb-3 text-sm md:text-lg text-center font-medium text-gray-900 dark:text-white">
                             <b className="text-lg">"</b>Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Enim consectetur eum, ipsum pariatur, labore,
                             consequuntur cupiditate illum tempore sed quasi qui
@@ -146,13 +135,14 @@ const Index = ({ title }) => {
 
                         </p>
 
-                        {/* <Link
+                        <Link
                             href="/profil"
                             type="button"
                             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                         >
                             Lebih lanjut...
-                        </Link> */}
+                        </Link>
+                    </div>
                 </div>
             </div>
             {/* <div className="border border-solid border-gray-400 my-4 mx-4"></div> */}
@@ -205,7 +195,7 @@ const Index = ({ title }) => {
             </div>
             <Link href="#" as="button" className="p-3 font-bold items-center justify-center block bg-blue-500 border-white border-2 hover:shadow-lg hover:shadow-black text-white hover:bg-blue-600 mx-auto mb-3">SELENGKAPNYA</Link>
 
-            <div className="bg-blue-500 w-full h-auto">
+            <div className="bg-[#283618] w-full h-auto">
                 <div className="p-2">
                     <div
                         className="flex items-center justify-center mt-3"
@@ -224,27 +214,27 @@ const Index = ({ title }) => {
                         data-aos-duration="1000"
                         data-aos-delay="200"
                     >
-                        <Link href="#" className="group relative transform overflow-hidden">
+                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
                             <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
                             <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden">
+                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
                             <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
                             <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden">
+                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
                             <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
                             <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden">
+                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
                             <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
                             <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden">
+                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
                             <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
                             <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden">
+                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
                             <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
                             <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
                         </Link>
