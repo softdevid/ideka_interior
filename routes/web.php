@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\KontakController;
 use Illuminate\Foundation\Application;
@@ -57,6 +58,7 @@ Route::group([
     Route::resource('layanan', LayananController::class);
     Route::resource('banner', BannerController::class);
     Route::resource('kontak', KontakController::class);
+    Route::resource('kategori', KategoriController::class);
 });
 
 require __DIR__ . '/auth.php';

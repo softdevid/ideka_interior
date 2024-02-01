@@ -36,21 +36,11 @@ const Index = ({ profil, props }) => {
 
     function message() {
         return (
-            // <div className="sticky">
             <div className="bg-green-500 text-white p-2 flex"><CheckIcon className="text-white w-6 h-6" /> Berhasil mengubah</div>
-            // </div>
         )
     }
-    // max - width: 430px;
-    // max - height: 200px;
-    // overflow: hidden;
-    // padding: 12px 48px 12px 12px;
-    // z - index: 99;
-    // font - weight: bold;
-    // position: relative;
 
     function submit() {
-        console.log(props)
         Inertia.patch(`/admin/profil/${profil.id}`, values)
         setNotif(!notif)
         setTimeout(() => {

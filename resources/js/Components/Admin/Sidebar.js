@@ -11,6 +11,7 @@ import {
 
 import { Link } from "@inertiajs/inertia-react";
 import React, { Fragment, useContext } from "react";
+import { BsTools } from "react-icons/bs";
 
 const Sidebar = () => {
     const context = useContext(AdminContext);
@@ -30,13 +31,13 @@ const Sidebar = () => {
         {
             name: "Layanan",
             href: `/admin/layanan`,
+            icon: BsTools,
+        },
+        {
+            name: "Kategori",
+            href: `/admin/kategori`,
             icon: ListBulletIcon,
         },
-        // {
-        //     name: "Kontak",
-        //     href: `/admin/kontak`,
-        //     icon: PhoneIcon,
-        // },
         {
             name: "Banner slider",
             href: `/admin/banner`,

@@ -127,18 +127,20 @@ const Add = ({ title }) => {
                 </div>
                 <div>
                     <label>Upload Gambar</label>
-                    {values.imgName ? (
-                        <>
-                            <img src={values.imgUrl} />
-                        </>
-                    ) : (
                         <button
                             onClick={uploadImageUtama}
                             className="p-2 rounded-md block w-full border-2"
                         >
                             Upload gambar
                         </button>
-                    )}
+                        <div className="block">
+                        <div className="grid grid-cols-4 gap-2 mt-1">
+                        {image.map((im,i) => {
+                            return <img src={im.url} className="w-20" />
+                        })}
+                        </div>
+                            </div>
+
                 </div>
                 <div>
                     <label>Upload Gambar</label>
@@ -170,7 +172,7 @@ const Add = ({ title }) => {
                     rows={10}
                 />
             </div>
-            <button onClick={submit}>simpan</button>
+            <button onClick={submit} className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-2">simpan</button>
         </>
     );
 };

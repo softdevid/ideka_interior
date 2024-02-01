@@ -59,7 +59,7 @@ const Index = ({ title, layanan }) => {
                                         </th>
                                         <td class="px-6 py-4">
                                             <img
-                                                src={data.imgUrl}
+                                                src={data.gambar[0].imgUrl}
                                                 alt={data.namaLayanan}
                                                 className="w-14 h-14"
                                             />
