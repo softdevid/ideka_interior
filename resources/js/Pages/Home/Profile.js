@@ -20,10 +20,10 @@ const Profile = ({ title }) => {
                             data-aos-duration="1000"
                             data-aos-delay=""
                         >
-                            <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">
+                            <h1 className="text-3xl lg:text-4xl font-bold leading-9 pb-4">
                                 Tentang Kami
                             </h1>
-                            <p className="font-normal text-base leading-6 text-gray-600 ">
+                            <p className="font-normal text-base leading-6 text-slate-800 ">
                                 Lorem ipsum dolor sit, amet consectetur
                                 adipisicing elit. Reiciendis quis voluptates
                                 explicabo saepe minima sit eaque, molestiae
@@ -68,11 +68,11 @@ const Profile = ({ title }) => {
                         data-aos-duration="1000"
                         data-aos-delay="200"
                     >
-                        <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">
+                        <h1 className="text-3xl lg:text-4xl font-bold leading-9 pb-4">
                             Cerita Singkat Saya
                         </h1>
 
-                        <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
+                        <p className="font-normal text-justify text-base leading-6 text-slate-800 ">
                             Lorem, ipsum dolor sit amet consectetur adipisicing
                             elit. Cupiditate sequi vel a explicabo numquam
                             adipisci. Quibusdam earum similique error dolore
@@ -99,7 +99,7 @@ const Profile = ({ title }) => {
                             minus in aut totam, quam omnis perferendis!
                         </p>
                         <br />
-                        <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
+                        <p className="font-normal text-justify text-base leading-6 text-slate-800 ">
                             Lorem, ipsum dolor sit amet consectetur adipisicing
                             elit. Commodi repellat delectus, sunt eos temporibus
                             voluptate corrupti dignissimos quisquam doloribus

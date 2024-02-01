@@ -31,4 +31,16 @@ class HomeController extends Controller
             "title" => "Detail Layanan | Interior House",
         ]);
     }
+    public function kontak_kami()
+    {
+        return Inertia::render("Home/KontakKami", [
+            "title" => "Kontak Kami | Interior House",
+        ]);
+    }
+    public function hasil_kerja()
+    {
+        return Inertia::render("Home/HasilKerja", [
+            "title" => "Hasil Kerja | Interior House",
+        ]);
+    }
 }

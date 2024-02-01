@@ -45,6 +45,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/layanan', [HomeController::class, 'layanan']);
 Route::get('/profil', [HomeController::class, "tentang_kami"]);
 Route::get('/detail-layanan', [HomeController::class, "detail_layanan"]);
+Route::get('/kontak-kami', [HomeController::class, "kontak_kami"]);
+Route::get('/hasil-kerja', [HomeController::class, "hasil_kerja"]);
 // Route::prefix('/tentang')->group(function () {
 // });
 

@@ -67,8 +67,8 @@ const Layanan = ({ title }) => {
                                         key={idx}
                                         className={`py-2 border-b-4 transition-colors duration-300 ${
                                             idx === activeTabIndex
-                                                ? "border-blue-500"
-                                                : "border-transparent hover:border-gray-200"
+                                                ? "border-[#7f7d7a]"
+                                                : "border-transparent hover:border-[#a9a6a2]"
                                         }`}
                                         // Change the active tab on click.
                                         onClick={() => setActiveTabIndex(idx)}
@@ -91,23 +91,23 @@ const Layanan = ({ title }) => {
                                 <div className="flex items-center justify-center">
                                     <div
                                         key={card}
-                                        className="max-w-xs bg-white rounded-lg shadow mb-4"
+                                        className="max-w-xs bg-white rounded-lg shadow-lg mb-4"
                                         data-aos="zoom-in"
                                         data-aos-duration="1000"
                                         data-aos-delay=""
                                     >
                                         <img src={cards.img} />
                                         <div className="p-5">
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                            <h5 className="mb-2 text-2xl font-bold tracking-tight">
                                                 {cards.title}
                                             </h5>
 
-                                            <p className="mb-3 font-normal text-gray-700">
+                                            <p className="mb-3 font-normal text-slate-800">
                                                 {cards.highlight}
                                             </p>
                                             <a
                                                 href="#"
-                                                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                                                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#7f7d7a] rounded-lg hover:bg-[#a9a6a2] focus:ring-4 focus:outline-none focus:ring-[#e5e3e0]"
                                             >
                                                 {cards.nameButton}
                                                 &nbsp;

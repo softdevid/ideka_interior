@@ -39,7 +39,7 @@ const Detail = ({ title }) => {
             <Head title={title} />
             <div className="container mx-auto lg:my-0 my-4">
                 <div className="mx-auto lg:py-12 lg:px-6 py-4 px-4">
-                    <h1 className="text-center text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">
+                    <h1 className="text-center text-3xl lg:text-4xl font-bold leading-9 pb-4">
                         Detail Layanan
                     </h1>
                     <div className="flex flex-col lg:flex-row justify-between gap-8">
@@ -49,10 +49,10 @@ const Detail = ({ title }) => {
                             data-aos-duration="1000"
                             data-aos-delay=""
                         >
-                            <h1 className="text-2xl lg:text-3xl font-bold leading-9 text-gray-800 pb-4">
+                            <h1 className="text-2xl lg:text-3xl font-bold leading-9 pb-4">
                                 Nama Layanan
                             </h1>
-                            <p className="font-normal text-base leading-6 text-gray-600 ">
+                            <p className="font-normal text-base leading-6 text-slate-800 ">
                                 Lorem ipsum dolor sit, amet consectetur
                                 adipisicing elit. Reiciendis quis voluptates
                                 explicabo saepe minima sit eaque, molestiae
@@ -98,11 +98,11 @@ const Detail = ({ title }) => {
                         data-aos-delay="200"
                     >
                         <div className=" justify-start mb-4 pt-12">
-                            <h1 className="text-2xl lg:text-3xl font-bold leading-9 text-gray-800 pb-4">
+                            <h1 className="text-2xl lg:text-3xl font-bold leading-9 pb-4">
                                 {currentPageContent.title}
                             </h1>
 
-                            <p className="font-normal text-justify text-base leading-6 text-gray-600 ">
+                            <p className="font-normal text-justify text-base leading-6 text-slate-800 ">
                                 {currentPageContent.content}
                             </p>
                             <br />

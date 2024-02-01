@@ -1,8 +1,16 @@
 import Main from "@/Layouts/Home/Main";
-import { ArrowRightIcon, EnvelopeIcon, MapPinIcon, QuestionMarkCircleIcon } from "@heroicons/react/20/solid";
+import {
+    ArrowRightIcon,
+    EnvelopeIcon,
+    MapPinIcon,
+} from "@heroicons/react/20/solid";
 import { Head, Link } from "@inertiajs/inertia-react";
 import React, { useState } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight, BsTelephone } from "react-icons/bs";
+import {
+    BsChevronCompactLeft,
+    BsChevronCompactRight,
+    BsTelephone,
+} from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 
 const Index = ({ title }) => {
@@ -83,7 +91,7 @@ const Index = ({ title }) => {
     return (
         <>
             <Head title={title} />
-            <div className="relative group h-56 overflow-hidden md:h-[550px] mx-4 my-4 md:mx-auto md:my-auto">
+            <div className="relative group h-56 overflow-hidden md:h-[550px] mx-4 my-4 md:mx-auto lg:my-auto">
                 <div
                     style={{
                         backgroundImage: `url(${slides[currentIndex].url})`,
@@ -114,7 +122,7 @@ const Index = ({ title }) => {
             <div className="mx-auto my-4">
                 <div className="mt-4 mx-4 sm:mx-10 mb-4">
                     <div
-                        className="text-gray-900 dark:text-white container"
+                        className="container"
                         data-aos="fade-down"
                         data-aos-duration="1000"
                         data-aos-delay="100"
@@ -122,23 +130,22 @@ const Index = ({ title }) => {
                         <h1 className="text-center text-3xl md:text-4xl mb-3 font-bold">
                             Spesialis
                         </h1>
-                        <p className="mb-3 text-sm md:text-lg text-center font-medium text-gray-900 dark:text-white">
-                            <b className="text-lg">"</b>Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Enim consectetur eum, ipsum pariatur, labore,
-                            consequuntur cupiditate illum tempore sed quasi qui
-                            reiciendis.
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Enim consectetur eum, ipsum pariatur, labore,
+                        <p className="mb-3 text-sm md:text-lg text-center font-medium">
+                            <b className="text-lg">"</b>Lorem ipsum dolor sit
+                            amet consectetur adipisicing elit. Enim consectetur
+                            eum, ipsum pariatur, labore, consequuntur cupiditate
+                            illum tempore sed quasi qui reiciendis. Lorem ipsum
+                            dolor sit amet consectetur adipisicing elit. Enim
+                            consectetur eum, ipsum pariatur, labore,
                             consequuntur cupiditate illum tempore sed quasi qui
                             reiciendis.
                             <b className="text-lg">"</b>
-
                         </p>
 
                         <Link
                             href="/profil"
                             type="button"
-                            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                            className="text-white bg-[#7f7d7a] hover:bg-[#a9a6a2] focus:ring-4 focus:ring-[#e5e3e0] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
                         >
                             Lebih lanjut...
                         </Link>
@@ -146,9 +153,12 @@ const Index = ({ title }) => {
                 </div>
             </div>
             {/* <div className="border border-solid border-gray-400 my-4 mx-4"></div> */}
-            <h1 className="text-center text-3xl md:text-4xl mb-3 font-bold" data-aos="zoom-in"
+            <h1
+                className="text-center text-3xl md:text-4xl mb-3 font-bold"
+                data-aos="zoom-in"
                 data-aos-duration="1000"
-                data-aos-delay="200">
+                data-aos-delay="200"
+            >
                 Layanan
             </h1>
             <div
@@ -180,7 +190,7 @@ const Index = ({ title }) => {
                                         </p>
                                         <a
                                             href="#"
-                                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#7f7d7a] rounded-lg hover:bg-[#a9a6a2] focus:ring-4 focus:outline-none focus:ring-[#e5e3e0]"
                                         >
                                             {cards.nameButton}
                                             &nbsp;
@@ -193,9 +203,15 @@ const Index = ({ title }) => {
                     })}
                 </div>
             </div>
-            <Link href="#" as="button" className="p-3 font-bold items-center justify-center block bg-blue-500 border-white border-2 hover:shadow-lg hover:shadow-black text-white hover:bg-blue-600 mx-auto mb-3">SELENGKAPNYA</Link>
+            <Link
+                href="#"
+                as="button"
+                className="p-3 font-bold items-center justify-center block bg-[#7f7d7a] border-white border-2  text-white hover:bg-[#a9a6a2] mx-auto mb-3"
+            >
+                SELENGKAPNYA
+            </Link>
 
-            <div className="bg-[#283618] w-full h-auto">
+            <div className="bg-[#2a2a29] w-full h-auto">
                 <div className="p-2">
                     <div
                         className="flex items-center justify-center mt-3"
@@ -203,7 +219,7 @@ const Index = ({ title }) => {
                         data-aos-duration="1000"
                         data-aos-delay="300"
                     >
-                        <h1 className="mb-3 text-center text-3xl font-bold tracking-tight leading-none text-white md:text-4xl dark:text-white">
+                        <h1 className="mb-3 text-center text-3xl font-bold tracking-tight leading-none text-white md:text-4xl">
                             Portfolio
                         </h1>
                     </div>
@@ -214,32 +230,92 @@ const Index = ({ title }) => {
                         data-aos-duration="1000"
                         data-aos-delay="200"
                     >
-                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
-                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        <Link
+                            href="#"
+                            className="group relative transform overflow-hidden border-white border-2 rounded-lg"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                fetchpriority="high"
+                                className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg"
+                            />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">
+                                Nama Portfolio
+                            </h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
-                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        <Link
+                            href="#"
+                            className="group relative transform overflow-hidden border-white border-2 rounded-lg"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                fetchpriority="high"
+                                className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg"
+                            />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">
+                                Nama Portfolio
+                            </h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
-                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        <Link
+                            href="#"
+                            className="group relative transform overflow-hidden border-white border-2 rounded-lg"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                fetchpriority="high"
+                                className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg"
+                            />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">
+                                Nama Portfolio
+                            </h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
-                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        <Link
+                            href="#"
+                            className="group relative transform overflow-hidden border-white border-2 rounded-lg"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                fetchpriority="high"
+                                className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg"
+                            />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">
+                                Nama Portfolio
+                            </h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
-                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        <Link
+                            href="#"
+                            className="group relative transform overflow-hidden border-white border-2 rounded-lg"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                fetchpriority="high"
+                                className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg"
+                            />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">
+                                Nama Portfolio
+                            </h2>
                         </Link>
-                        <Link href="#" className="group relative transform overflow-hidden border-white border-2 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80" fetchpriority="high" className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg" />
-                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">Nama Portfolio</h2>
+                        <Link
+                            href="#"
+                            className="group relative transform overflow-hidden border-white border-2 rounded-lg"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
+                                fetchpriority="high"
+                                className="w-auto h-32 sm:h-40 overflow-hidden hover:opacity-60 hover:bg-bl rounded-lg"
+                            />
+                            <h2 className="text-center absolute inset-x-0 -bottom-10 z-10 flex transform flex-col px-3 transition-all duration-300 ease-in-out group-hover:bottom-3 sm:px-4 group-hover:sm:bottom-4 text-white">
+                                Nama Portfolio
+                            </h2>
                         </Link>
                     </div>
-                    <Link href="#" as="button" className="p-3 font-bold items-center justify-center block bg-blue-500 border-white border-2 hover:shadow-lg hover:shadow-black text-white hover:bg-blue-600 mx-auto mb-3">SELENGKAPNYA</Link>
+                    <Link
+                        href="#"
+                        as="button"
+                        className="p-3 font-bold items-center justify-center block bg-[#7f7d7a] text-white hover:bg-[#a9a6a2] mx-auto mb-3"
+                    >
+                        SELENGKAPNYA
+                    </Link>
                 </div>
             </div>
 
@@ -248,14 +324,14 @@ const Index = ({ title }) => {
                 <div className="w-[50%] h-96 border"></div>
                 <div className="w-[50%] block">
                     <div className="p-2 font-semibold text-xl inline-flex">
-                        <div className="h-14 w-14 text-white bg-blue-500 rounded-full flex items-center justify-center">
+                        <div className="h-14 w-14 text-white bg-[#7f7d7a] rounded-full flex items-center justify-center">
                             <EnvelopeIcon className="w-7 h-7" />
                         </div>
                         <b className="mt-3 ml-2">softdev@gmail.com</b>
                     </div>
                     <div className="block">
                         <div className="p-2 font-semibold text-xl inline-flex">
-                            <div className="h-14 w-14 text-white bg-blue-500 rounded-full flex items-center justify-center">
+                            <div className="h-14 w-14 text-white bg-[#7f7d7a] rounded-full flex items-center justify-center">
                                 <BsTelephone className="w-7 h-7" />
                             </div>
                             <b className="mt-3 ml-2">0877365735353</b>
@@ -263,15 +339,16 @@ const Index = ({ title }) => {
                     </div>
                     <div className="block">
                         <div className="p-2 font-semibold text-xl inline-flex">
-                            <div className="h-14 w-14 text-white bg-blue-500 rounded-full flex items-center justify-center">
+                            <div className="h-14 w-14 text-white bg-[#7f7d7a] rounded-full flex items-center justify-center">
                                 <MapPinIcon className="w-7 h-7" />
                             </div>
-                            <b className="mt-3 ml-2">SELABAYA, KALIMANAH, PURBALINGGA</b>
+                            <b className="mt-3 ml-2">
+                                SELABAYA, KALIMANAH, PURBALINGGA
+                            </b>
                         </div>
                     </div>
                 </div>
             </div>
-
         </>
     );
 };

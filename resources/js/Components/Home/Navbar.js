@@ -20,7 +20,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="bg-slate-100 p-4 flex justify-between items-center shadow-lg">
+        <nav className="bg-[#f6f6f5] p-4 flex justify-between items-center shadow-lg">
             <div className="flex items-center">
                 {/* <img src="logo.png" alt="Logo" className="h-8 w-8 mr-2" /> */}
                 <h1 className=" text-xl uppercase">Interior House</h1>
@@ -29,7 +29,7 @@ export default function Navbar() {
                 <button
                     onClick={toggleSidebar}
                     type="button"
-                    className="bg-slate-200 inline-flex items-center justify-center p-2 rounded-md text-black  hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-white"
+                    className="bg-[#edecea] inline-flex items-center justify-center p-2 rounded-md text-black  hover:bg-[#e5e3e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-white"
                     aria-controls="mobile-menu"
                     aria-expanded="false"
                 >
@@ -75,8 +75,8 @@ export default function Navbar() {
                         href="/"
                         className={
                             url === "/"
-                                ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                         }
                         aria-current="page"
                     >
@@ -85,7 +85,7 @@ export default function Navbar() {
 
                     <Menu as="div" className="relative inline-block text-left">
                         <div>
-                            <Menu.Button className="inline-flex w-full justify-center text-black hover:text-white hover:bg-blue-600 rounded py-2 px-5 font-bold">
+                            <Menu.Button className="inline-flex w-full justify-center text-black hover:text-white hover:bg-[#a9a6a2] rounded py-2 px-5 font-bold">
                                 Tentang
                                 <ArrowDownIcon
                                     className="ml-2 -mr-1 h-5 w-5 "
@@ -102,7 +102,7 @@ export default function Navbar() {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-white rounded-md bg-slate-100 shadow-lg ring-1 ring-white ring-opacity-50 focus:outline-none">
+                            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-white rounded-md bg-[#f6f6f5] shadow-lg ring-1 ring-white ring-opacity-50 focus:outline-none">
                                 <div className="px-1 py-1 ">
                                     {links.map((link, index) => (
                                         /* Use the `active` state to conditionally style the active item. */
@@ -112,8 +112,8 @@ export default function Navbar() {
                                                     href={link.href}
                                                     className={`${
                                                         active
-                                                            ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                                            : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                                            ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                                            : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                                                     }`}
                                                 >
                                                     {link.label}
@@ -129,8 +129,8 @@ export default function Navbar() {
                         href="/layanan"
                         className={
                             url === "/layanan"
-                                ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                         }
                         aria-current="page"
                     >
@@ -140,28 +140,28 @@ export default function Navbar() {
                         href="/hasil-kerja"
                         className={
                             url === "/hasil-kerja"
-                                ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                         }
                         aria-current="page"
                     >
                         Hasil Kerja
                     </Link>
                     <Link
-                        href="/kontak"
+                        href="/kontak-kami"
                         className={
-                            url === "/kontak"
-                                ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                            url === "/kontak-kami"
+                                ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                         }
                         aria-current="page"
                     >
-                        Kontak
+                        Kontak Kami
                     </Link>
                 </div>
             </div>
             {sidebarOpen && (
-                <div className="z-50 lg:hidden absolute top-0 left-0 w-64 bg-slate-100 h-full p-4 shadow">
+                <div className="z-50 lg:hidden absolute top-0 left-0 w-64 bg-[#f6f6f5] h-full p-4 shadow">
                     <div className="flex justify-center items-center mb-4">
                         {/* <img src="logo.png" alt="Logo" className="h-8 w-8 mr-2" /> */}
                         <h1 className="text-xl uppercase">Interior House</h1>
@@ -175,8 +175,8 @@ export default function Navbar() {
                                     href="/"
                                     className={
                                         url === "/"
-                                            ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                            : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                            ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                            : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                                     }
                                     aria-current="page"
                                 >
@@ -189,7 +189,7 @@ export default function Navbar() {
                                     className="relative inline-block text-left"
                                 >
                                     <div>
-                                        <Menu.Button className="inline-flex w-full justify-center text-black hover:text-white hover:bg-blue-600 rounded py-2 px-5 font-bold">
+                                        <Menu.Button className="inline-flex w-full justify-center text-black hover:text-white hover:bg-[#a9a6a2] rounded py-2 px-5 font-bold">
                                             Tentang
                                             <ArrowDownIcon
                                                 className="ml-2 -mr-1 h-5 w-5 "
@@ -206,7 +206,7 @@ export default function Navbar() {
                                         leaveFrom="transform opacity-100 scale-100"
                                         leaveTo="transform opacity-0 scale-95"
                                     >
-                                        <Menu.Items className="absolute left-1 mt-2 w-48 origin-top-right divide-y divide-white rounded-md bg-slate-100 shadow-lg ring-1 ring-white ring-opacity-50 focus:outline-none">
+                                        <Menu.Items className="absolute left-1 mt-2 w-48 origin-top-right divide-y divide-white rounded-md bg-[#f6f6f5] shadow-lg ring-1 ring-white ring-opacity-50 focus:outline-none">
                                             <div className="px-1 py-1 ">
                                                 {links.map((link, index) => (
                                                     <Menu.Item
@@ -218,8 +218,8 @@ export default function Navbar() {
                                                                 href={link.href}
                                                                 className={`${
                                                                     active
-                                                                        ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                                                        : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                                                        ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                                                        : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                                                                 }`}
                                                             >
                                                                 {link.label}
@@ -237,8 +237,8 @@ export default function Navbar() {
                                     href="/layanan"
                                     className={
                                         url === "/layanan"
-                                            ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                            : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                            ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                            : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                                     }
                                     aria-current="page"
                                 >
@@ -250,8 +250,8 @@ export default function Navbar() {
                                     href="/hasil-kerja"
                                     className={
                                         url === "/hasil-kerja"
-                                            ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                            : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                            ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                            : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                                     }
                                     aria-current="page"
                                 >
@@ -260,15 +260,15 @@ export default function Navbar() {
                             </li>
                             <li>
                                 <Link
-                                    href="/kontak"
+                                    href="/kontak-kami"
                                     className={
-                                        url === "/kontak"
-                                            ? "active text-white bg-blue-600 rounded block py-2 px-5 font-bold"
-                                            : " hover:text-white hover:bg-blue-600 block py-2 px-5 font-bold"
+                                        url === "/kontak-kami"
+                                            ? "active text-white bg-[#7f7d7a] rounded block py-2 px-5 font-bold"
+                                            : " hover:text-white hover:bg-[#a9a6a2] block py-2 px-5 font-bold"
                                     }
                                     aria-current="page"
                                 >
-                                    Kontak
+                                    Kontak Kami
                                 </Link>
                             </li>
                         </ul>
