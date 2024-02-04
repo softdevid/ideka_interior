@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PortfolioController extends Controller
 {
@@ -14,7 +16,10 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Admin/Portfolio/PortfolioIndex', [
+            'title' => 'Portfolio',
+            'portfolio' => Portfolio::all(),
+        ]);
     }
 
     /**
@@ -24,7 +29,9 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Admin/Portfolio/PortfolioAdd', [
+            'title' => 'Tambah Portfolio',
+        ]);
     }
 
     /**
@@ -35,7 +42,23 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->imgName1);
+        Portfolio::create([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'imgName1' => $request->imgName1,
+            'imgUrl1' => $request->imgUrl1,
+            'imgUrl2' => $request->imgUrl2,
+            'imgName2' => $request->imgName2,
+            'imgUrl3' => $request->imgUrl3,
+            'imgName3' => $request->imgName3,
+            'imgUrl4' => $request->imgUrl4,
+            'imgName4' => $request->imgName4,
+            'imgUrl5' => $request->imgUrl5,
+            'imgName5' => $request->imgName5,
+        ]);
+
+        return redirect('/admin/portfolio')->with(['message' => 'Berhasil menambah']);
     }
 
     /**
@@ -80,6 +103,23 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
-        //
+        if ($portfolio->imgName1) {
+            Cloudinary::destroy($portfolio->imgName1);
+        }
+        if ($portfolio->imgName2) {
+            Cloudinary::destroy($portfolio->imgName2);
+        }
+        if ($portfolio->imgName3) {
+            Cloudinary::destroy($portfolio->imgName3);
+        }
+        if ($portfolio->imgName4) {
+            Cloudinary::destroy($portfolio->imgName4);
+        }
+        if ($portfolio->imgName5) {
+            Cloudinary::destroy($portfolio->imgName5);
+        }
+
+        $portfolio->delete();
+        return redirect('/admin/portfolio')->with(['message' => 'Berhasil menghapus']);
     }
 }

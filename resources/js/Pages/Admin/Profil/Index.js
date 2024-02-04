@@ -1,3 +1,4 @@
+import FlashMessage from "@/Components/FlashMessage";
 import Main from "@/Layouts/Admin/Main";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import { Inertia } from "@inertiajs/inertia";
@@ -7,22 +8,22 @@ import { toast } from "react-toastify";
 // Import toastify css file
 import "react-toastify/dist/ReactToastify.css";
 
-const Index = ({ profil, props }) => {
+const Index = (props) => {
     const [errors, setErrors] = useState({});
     const [notif, setNotif] = useState(false)
 
     const [values, setValues] = useState({
-        namaPerusahaan: profil.namaPerusahaan,
-        deskripsiPerusahaan: profil.deskripsiPerusahaan,
-        linkInstagram: profil.linkInstagram,
-        linkTwitter: profil.linkTwitter,
-        linkFacebook: profil.linkFacebook,
-        email: profil.email,
-        noHp: profil.noHp,
-        alamat: profil.alamat,
-        maps: profil.maps,
-        logoImgName: profil.logoImgName,
-        logoImgUrl: profil.logoImgUrl,
+        namaPerusahaan: props.profil.namaPerusahaan,
+        deskripsiPerusahaan: props.profil.deskripsiPerusahaan,
+        linkInstagram: props.profil.linkInstagram,
+        linkTwitter: props.profil.linkTwitter,
+        linkFacebook: props.profil.linkFacebook,
+        email: props.profil.email,
+        noHp: props.profil.noHp,
+        alamat: props.profil.alamat,
+        maps: props.profil.maps,
+        logoImgName: props.profil.logoImgName,
+        logoImgUrl: props.profil.logoImgUrl,
     });
 
     function handleChange(e) {
@@ -34,14 +35,8 @@ const Index = ({ profil, props }) => {
         }));
     }
 
-    function message() {
-        return (
-            <div className="bg-green-500 text-white p-2 flex"><CheckIcon className="text-white w-6 h-6" /> Berhasil mengubah</div>
-        )
-    }
-
     function submit() {
-        Inertia.patch(`/admin/profil/${profil.id}`, values)
+        Inertia.patch(`/admin/profil/${props.profil.id}`, values)
         setNotif(!notif)
         setTimeout(() => {
             setNotif(false)
@@ -50,7 +45,7 @@ const Index = ({ profil, props }) => {
     return (
         <>
             {notif && (
-                message()
+                <FlashMessage value={props.flash.message} />
             )}
 
             <div className="grid md:grid-cols-2 gap-4">

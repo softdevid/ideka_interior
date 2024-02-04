@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import Aos from "aos";
 
-const Layanan = ({ title }) => {
+const Layanan = (props) => {
     useEffect(() => {
         Aos.refresh();
     }, []);
@@ -51,7 +51,7 @@ const Layanan = ({ title }) => {
 
     return (
         <>
-            <Head title={title} />
+            <Head title={props.title} />
             <div className="container mx-auto my-4">
                 <div className="container  md:mx-auto md:py-4 py-2 px-4 mb-4">
                     <p className="md:text-3xl text-xl mb-3 font-bold">

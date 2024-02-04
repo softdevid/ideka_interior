@@ -7,6 +7,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -61,6 +62,7 @@ Route::group([
     Route::resource('banner', BannerController::class);
     Route::resource('kontak', KontakController::class);
     Route::resource('kategori', KategoriController::class);
+    Route::resource('portfolio', PortfolioController::class);
 });
 
 require __DIR__ . '/auth.php';

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Layanan;
+use App\Models\Portfolio;
+use App\Models\Profil;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -11,12 +15,17 @@ class HomeController extends Controller
     {
         return Inertia::render("Home/Index", [
             "title" => "Selamat Datang | Interior House",
+            'profil' => Profil::first(),
+            'layanan' => Layanan::paginate(10),
+            'portfolio' => Portfolio::paginate(10),
+            'banner' => Banner::all(),
         ]);
     }
     public function layanan()
     {
         return Inertia::render("Home/Layanan", [
             "title" => "Layanan | Interior House",
+            'layanan' => Layanan::all(),
         ]);
     }
     public function tentang_kami()

@@ -47,7 +47,7 @@ class KategoriController extends Controller
         $request->validate(['slug' => 'unique:kategoris', 'namaKategori' => 'required']);
 
         Kategori::create(['namaKategori' => $request->namaKategori, 'slug' => $slug]);
-        return redirect('/admin/kategori')->with(['data' => 'Berhasil menambah']);
+        return redirect('/admin/kategori')->with(['message' => 'Berhasil menambah']);
     }
 
     /**

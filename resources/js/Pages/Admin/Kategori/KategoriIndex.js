@@ -1,21 +1,33 @@
+import FlashMessage from "@/Components/FlashMessage";
 import Main from "@/Layouts/Admin/Main";
 import { Inertia } from "@inertiajs/inertia";
 import { Head, Link } from "@inertiajs/inertia-react";
 import axios from "axios";
+import { useState } from "react";
 
-const KategoriIndex = ({kategori, title}) => {
+const KategoriIndex = (props) => {
 
-        const hapus = (id) => {
-        console.log(id);
-        // axios.delete(`/admin/layanan/${id}`)
-        // .then((res) => console.log(res.data.data))
-        Inertia.delete(`/admin/kategori/${id}`);
+    const [notif, setNotif] = useState(false)
+    const hapus = (id) => {
+            Inertia.delete(`/admin/kategori/${id}`);
+            setNotif(!notif)
+        setTimeout(() => {
+            setNotif(!notif)
+        }, 3000);
         }
+
+        function message() {
+            setTimeout(() => {
+                setNotif(!notif)
+            }, 3000);
+        }
+
     return (
         <>
-            <Head title={title} />
+        {notif && (<FlashMessage value={props.flash.message} />)}
+            <Head title={props.title} />
             <div className="flex justify-between my-2">
-                <h1 className="text-xl">{title}</h1>
+                <h1 className="text-xl">{props.title}</h1>
                 <div>
                     <Link
                         href="/admin/kategori/create"
@@ -25,6 +37,7 @@ const KategoriIndex = ({kategori, title}) => {
                     </Link>
                 </div>
             </div>
+
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -42,8 +55,8 @@ const KategoriIndex = ({kategori, title}) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {kategori.length > 0 ? (
-                            kategori.map((data, i) => {
+                        {props.kategori.length > 0 ? (
+                            props.kategori.map((data, i) => {
                                 return (
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th

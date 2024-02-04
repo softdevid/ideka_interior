@@ -78,6 +78,6 @@ class BannerController extends Controller
     {
         Cloudinary::destroy($banner->imgUrl);
         $banner->delete();
-        return redirect('/admin/banner')->with(['data' => 'Berhasil Menghapus']);
+        return redirect('/admin/banner')->with(['message' => 'Berhasil Menghapus']);
     }
 }

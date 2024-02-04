@@ -39,6 +39,11 @@ const Sidebar = () => {
             icon: ListBulletIcon,
         },
         {
+            name: "Portfolio",
+            href: `/admin/portfolio`,
+            icon: ListBulletIcon,
+        },
+        {
             name: "Banner slider",
             href: `/admin/banner`,
             icon: PhotoIcon,
