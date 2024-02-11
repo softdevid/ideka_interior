@@ -3,7 +3,7 @@ import { Head } from "@inertiajs/inertia-react";
 import React, { useEffect, useState } from "react";
 import Aos from "aos";
 
-const HasilKerja = ({ title }) => {
+const HasilKerja = ({ title, portfolio }) => {
     useEffect(() => {
         Aos.refresh();
     }, []);
@@ -27,40 +27,28 @@ const HasilKerja = ({ title }) => {
         const categoryData = data.find((item) => item.value === category);
         return categoryData ? categoryData.images : [];
     };
+    console.log(portfolio)
 
     const data = [
         {
             label: "Semua",
             value: "semua",
             images: [
-                {
-                    imageLink:
-                        "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
-                    company: "PT.Indokores",
-                    project: "Restaurant",
-                    link: "/detail-gambar-1",
-                },
-                {
-                    imageLink:
-                        "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
-                    company: "PT.Suka Maju",
-                    project: "Rumah",
+                // {
+                    // imageLink:
+                    //     "https://demos.creative-tim.com/material-kit-pro/assets/img/examples/blog5.jpg",
+                    // company: "PT.Setia Budi",
+                    // project: "Tempat Umum",
+                    // link: "/detail-gambar-4",
+                // },
+                ...portfolio.map((data) => {
+                    return {
+                        imageLink: data.imgUrl1,
+                    company: data.judul,
+                    project: data.kategori.namaKategori,
                     link: "/detail-gambar-2",
-                },
-                {
-                    imageLink:
-                        "https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80",
-                    company: "PT.Harapan Ibu",
-                    project: "Rumah Sakit",
-                    link: "/detail-gambar-3",
-                },
-                {
-                    imageLink:
-                        "https://demos.creative-tim.com/material-kit-pro/assets/img/examples/blog5.jpg",
-                    company: "PT.Setia Budi",
-                    project: "Tempat Umum",
-                    link: "/detail-gambar-4",
-                },
+                      }
+                  })
             ],
         },
         {

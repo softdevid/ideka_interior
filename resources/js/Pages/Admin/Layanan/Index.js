@@ -1,14 +1,41 @@
 import Main from "@/Layouts/Admin/Main";
+import { Inertia } from "@inertiajs/inertia";
 import { Head, Link } from "@inertiajs/inertia-react";
 import axios from "axios";
+import { useState } from "react";
 
 const Index = ({ title, layanan }) => {
     const hapus = (id) => {
         console.log(id);
         // axios.delete(`/admin/layanan/${id}`)
         // .then((res) => console.log(res.data.data))
-        axios.delete(`/admin/layanan/${id}`);
+        Inertia.delete(`/admin/layanan/${id}`);
     };
+
+    const [search, setSearch] = useState("");
+
+    const filteredLayanan = layanan.filter(
+      (layanan) =>
+        layanan.namaLayanan.toLowerCase().includes(search.toLowerCase())
+    );
+
+    const pageSize = 20;
+    const pageCount = Math.ceil(filteredLayanan.length / pageSize);
+
+    function getPageItems(page) {
+      const startIndex = (page - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      return filteredLayanan.slice(startIndex, endIndex);
+    }
+
+    function handlePageClick(data) {
+      const selectedPage = data.selected + 1;
+      setCurrentPage(selectedPage);
+    }
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const currentPageItems =
+      filteredLayanan.length > 0 ? getPageItems(currentPage) : [];
 
     return (
         <>
@@ -24,6 +51,14 @@ const Index = ({ title, layanan }) => {
                     </Link>
                 </div>
             </div>
+
+            <input
+            placeholder="Cari nama layanan"
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="rounded-lg text-sm lg:text-base"
+          />
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -47,8 +82,8 @@ const Index = ({ title, layanan }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {layanan.length > 0 ? (
-                            layanan.map((data, i) => {
+                        {currentPageItems.length > 0 ? (
+                            currentPageItems.map((data, i) => {
                                 return (
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th
@@ -72,12 +107,12 @@ const Index = ({ title, layanan }) => {
                                             {data.hrgTertinggi}
                                         </td>
                                         <td class="px-6 py-4 text-right">
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href={`/admin/layanan/${data.id}/edit`}
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                                             >
                                                 Edit
-                                            </a>
+                                            </Link>
                                             <button
                                                 onClick={() => hapus(data.id)}
                                                 class="font-medium text-red-600 dark:text-red-500 hover:underline ml-1"

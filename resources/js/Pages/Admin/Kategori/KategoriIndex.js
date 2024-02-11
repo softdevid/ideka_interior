@@ -16,11 +16,12 @@ const KategoriIndex = (props) => {
         }, 3000);
         }
 
-        function message() {
-            setTimeout(() => {
-                setNotif(!notif)
-            }, 3000);
-        }
+        const [search, setSearch] = useState("");
+
+    const filteredKategori = props.kategori.filter(
+      (kategori) =>
+        kategori.namaKategori.toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
         <>
@@ -37,7 +38,13 @@ const KategoriIndex = (props) => {
                     </Link>
                 </div>
             </div>
-
+            <input
+            placeholder="Cari nama kategori"
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="rounded-lg text-sm lg:text-base"
+          />
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -55,8 +62,8 @@ const KategoriIndex = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.kategori.length > 0 ? (
-                            props.kategori.map((data, i) => {
+                        {filteredKategori.length > 0 ? (
+                            filteredKategori.map((data, i) => {
                                 return (
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th

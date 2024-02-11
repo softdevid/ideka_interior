@@ -15,7 +15,8 @@ import { RxDotFilled } from "react-icons/rx";
 
 const Index = (props) => {
     console.log(props)
-    const [slides, setSlides] = useState(props.banner.map((data) => ({ url: data.imgUrl })));
+    const initiatedBanner = props.banner ? props.banner.map((data) => ({ url: data.imgUrl })) : [];
+    const [slides, setSlides] = useState(initiatedBanner);
     // const slides = [
     //     {
     //         url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
@@ -47,14 +48,13 @@ const Index = (props) => {
         setCurrentIndex(slideIndex);
     };
 
-    console.log(props)
     return (
         <>
             <Head title={props.title} />
             <div className="relative group h-56 overflow-hidden md:h-[550px] mx-4 my-4 md:mx-auto lg:my-auto">
                 <div
                     style={{
-                        backgroundImage: `url(${slides[currentIndex].url})`,
+                        backgroundImage: `url(${slides.length > 0 ? slides[currentIndex].url : ''})`,
                     }}
                     className="w-full h-full bg-center bg-cover duration-500"
                 ></div>
@@ -121,43 +121,66 @@ const Index = (props) => {
                 data-aos-delay="300"
             >
                 {/* <h1 className="mb-3 text-center text-3xl font-bold tracking-tight leading-none text-gray-900 md:text-4xl dark:text-white"> */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
-                    {props.layanan.data.map((cards, card) => {
-                        return (
-                            <div className="flex items-center justify-center">
-                                <div
-                                    key={card}
-                                    className="max-w-xs bg-white rounded-lg shadow mb-4"
-                                    data-aos="zoom-in"
-                                    data-aos-duration="1000"
-                                    data-aos-delay=""
-                                >
-                                    <img src={cards.imgUrl} />
-                                    <div className="p-5">
-                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                                            {cards.namaLayanan}
-                                        </h5>
+                <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+    {props.layanan.data.map((cards, card) => {
+        return (
+            <div className="flex items-center justify-center" key={card}>
+    <div
+        className="max-w-xs bg-white rounded-lg shadow mb-4"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        data-aos-delay=""
+    >
+        <div className="max-h-[18rem] min-h-[18rem] w-full min-w-full overflow-hidden">
+            <img
+                src={cards.gambar[0].imgUrl}  // Ganti URL gambar sesuai kebutuhan Anda
+                className="object-cover object-center w-full h-full"
+                alt="Card Image"
+                style={{ width: '100%', height: '100%' }}
+            />
+        </div>
+        <div className="p-5">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                {cards.namaLayanan}
+            </h5>
 
-                                        <p className="mb-3 font-normal text-gray-700">
-                                            {cards.deskripsi}
-                                        </p>
-                                        <a
-                                            href="#"
-                                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#7f7d7a] rounded-lg hover:bg-[#a9a6a2] focus:ring-4 focus:outline-none focus:ring-[#e5e3e0]"
-                                        >
-                                            Selengkapnya
-                                            &nbsp;
-                                            <ArrowRightIcon className="w-4" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
+            <p className="mb-3 font-normal text-gray-700">
+                Deskripsi card baru dengan gambar berbeda ukuran mengikuti ukuran card.
+            </p>
+            <Link
+                href={`/layanan/${cards.slug}`}
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#7f7d7a] rounded-lg hover:bg-[#a9a6a2] focus:ring-4 focus:outline-none focus:ring-[#e5e3e0]"
+            >
+                Lanjut...
+                &nbsp;
+                {/* Ganti ikon panah sesuai kebutuhan Anda */}
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className="w-4"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 5l7 7-7 7"
+                    />
+                </svg>
+            </Link>
+        </div>
+    </div>
+</div>
+
+        );
+    })}
+</div>
+
+
             </div>
             <Link
-                href="#"
+                href="/layanan"
                 as="button"
                 className="p-3 font-bold items-center justify-center block bg-[#7f7d7a] border-white border-2  text-white hover:bg-[#a9a6a2] mx-auto mb-3"
             >

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Kategori;
 use App\Models\Layanan;
 use App\Models\Portfolio;
 use App\Models\Profil;
@@ -16,7 +17,7 @@ class HomeController extends Controller
         return Inertia::render("Home/Index", [
             "title" => "Selamat Datang | Interior House",
             'profil' => Profil::first(),
-            'layanan' => Layanan::paginate(10),
+            'layanan' => Layanan::with('gambar')->paginate(10),
             'portfolio' => Portfolio::paginate(10),
             'banner' => Banner::all(),
         ]);
@@ -25,7 +26,8 @@ class HomeController extends Controller
     {
         return Inertia::render("Home/Layanan", [
             "title" => "Layanan | Interior House",
-            'layanan' => Layanan::all(),
+            'layanan' => Layanan::with('gambar')->get(),
+            'kategori' => Kategori::all(),
         ]);
     }
     public function tentang_kami()
@@ -34,10 +36,11 @@ class HomeController extends Controller
             "title" => "Tentang Kami | Interior House",
         ]);
     }
-    public function detail_layanan()
+    public function detail_layanan(Layanan $layanan, $slug)
     {
         return Inertia::render("Home/Detail", [
             "title" => "Detail Layanan | Interior House",
+            'layanan' => $layanan::with('gambar')->where('slug', $slug)->first(),
         ]);
     }
     public function kontak_kami()
@@ -50,6 +53,8 @@ class HomeController extends Controller
     {
         return Inertia::render("Home/HasilKerja", [
             "title" => "Hasil Kerja | Interior House",
+            'portfolio' => Portfolio::with('kategori')->get(),
+            'kategori' => Kategori::all(),
         ]);
     }
 }

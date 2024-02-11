@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Portfolio;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class PortfolioController extends Controller
     {
         return Inertia::render('Admin/Portfolio/PortfolioAdd', [
             'title' => 'Tambah Portfolio',
+            'kategori' => Kategori::all(),
         ]);
     }
 
@@ -44,6 +46,7 @@ class PortfolioController extends Controller
     {
         // dd($request->imgName1);
         Portfolio::create([
+            'idKategori' => $request->idKategori,
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'imgName1' => $request->imgName1,
@@ -80,7 +83,11 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        //
+        return Inertia::render('Admin/Portfolio/PortfolioEdit', [
+            'title' => 'Edit Portfolio',
+            'portfolio' => $portfolio,
+            'kategori' => Kategori::all(),
+        ]);
     }
 
     /**
@@ -92,7 +99,40 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
-        //
+        // dd($request->all());
+        if ($request->imgName1 != $portfolio->imgName1 && $portfolio->imgName1 != null) {
+            Cloudinary::destroy($portfolio->imgName1);
+        }
+        if ($request->imgName2 != $portfolio->imgName2 && $portfolio->imgName2 != null) {
+            Cloudinary::destroy($portfolio->imgName2);
+        }
+        if ($request->imgName3 != $portfolio->imgName3 && $portfolio->imgName3 != null) {
+            Cloudinary::destroy($portfolio->imgName3);
+        }
+        if ($request->imgName4 != $portfolio->imgName4 && $portfolio->imgName4 != null) {
+            Cloudinary::destroy($portfolio->imgName4);
+        }
+        if ($request->imgName5 != $portfolio->imgName5 && $portfolio->imgName5 != null) {
+            Cloudinary::destroy($portfolio->imgName5);
+        }
+
+        $portfolio->update([
+            'judul' => $request->judul,
+            'idKategori' => $request->idKategori,
+            'deskripsi' => $request->deskripsi,
+            'imgName1' => $request->imgName1,
+            'imgUrl1' => $request->imgUrl1,
+            'imgName2' => $request->imgName2,
+            'imgUrl2' => $request->imgUrl2,
+            'imgName3' => $request->imgName3,
+            'imgUrl3' => $request->imgUrl3,
+            'imgName4' => $request->imgName4,
+            'imgUrl4' => $request->imgUrl4,
+            'imgName5' => $request->imgName5,
+            'imgUrl5' => $request->imgUrl5,
+        ]);
+
+        return redirect('/admin/portfolio')->with(['message' => 'Berhasil mengubah']);
     }
 
     /**

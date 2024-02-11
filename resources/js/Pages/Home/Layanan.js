@@ -1,10 +1,11 @@
 import Main from "@/Layouts/Home/Main";
-import { Head } from "@inertiajs/inertia-react";
+import { Head, Link } from "@inertiajs/inertia-react";
 import React, { useEffect, useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import Aos from "aos";
 
 const Layanan = (props) => {
+    console.log(props)
     useEffect(() => {
         Aos.refresh();
     }, []);
@@ -13,16 +14,24 @@ const Layanan = (props) => {
         {
             label: "Semua",
             title: "Semua Layanan Kami",
-            // content:
-            //     "Ut irure mollit nulla eiusmod excepteur laboris elit sit anim magna tempor excepteur labore nulla.",
+            idKategori: 0,
         },
-        {
-            label: "Desain Interior",
-            title: "Desain Interior",
-            // content:
-            //     "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
-        },
+        ...props.kategori.map((data) => {
+          return {
+                label: data.namaKategori,
+                title: data.namaKategori,
+                idKategori: data.id
+            }
+        })
+
     ];
+
+    const [kategori, setKategori] = useState(0);
+
+    const filteredLayanan = props.layanan.filter(
+      (layanan) =>
+        layanan.idKategori === kategori
+    );
     const cardsData = [
         {
             img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
@@ -64,60 +73,101 @@ const Layanan = (props) => {
                             {tabsData.map((tab, idx) => {
                                 return (
                                     <button
-                                        key={idx}
-                                        className={`py-2 border-b-4 transition-colors duration-300 ${
-                                            idx === activeTabIndex
-                                                ? "border-[#7f7d7a]"
-                                                : "border-transparent hover:border-[#a9a6a2]"
-                                        }`}
-                                        // Change the active tab on click.
-                                        onClick={() => setActiveTabIndex(idx)}
-                                    >
-                                        {tab.label}
-                                    </button>
+                                    key={idx}
+                                    className={`py-2 border-b-4 transition-colors duration-300 ${
+                                        tab.idKategori === kategori
+                                            ? "border-[#7f7d7a]"
+                                            : "border-transparent hover:border-[#a9a6a2]"
+                                    }`}
+                                    // Change the active tab on click and perform another action.
+                                    onClick={() => {
+                                        setKategori(tab.idKategori);
+                                    }}
+                                >
+                                    {tab.title}
+                                </button>
                                 );
                             })}
                         </div>
                         {/* Show active tab content. */}
                         <div className="py-4">
                             <p className="text-4xl mb-3 font-bold text-center">
-                                {tabsData[activeTabIndex].title}
+                                {tabsData[kategori].title}
                             </p>
                         </div>
                     </div>
                     <div className="grid grid-cols-1 lg:grid-cols-3 mb-4">
-                        {cardsData.map((cards, card) => {
-                            return (
-                                <div className="flex items-center justify-center">
-                                    <div
-                                        key={card}
-                                        className="max-w-xs bg-white rounded-lg shadow-lg mb-4"
-                                        data-aos="zoom-in"
-                                        data-aos-duration="1000"
-                                        data-aos-delay=""
-                                    >
-                                        <img src={cards.img} />
-                                        <div className="p-5">
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight">
-                                                {cards.title}
-                                            </h5>
+                        {kategori === 0 ?
+                            props.layanan.map((cards, card) => {
+                                return (
+                                    <div className="flex items-center justify-center">
+                                        <div
+                                            key={card}
+                                            className="max-w-xs bg-white rounded-lg shadow-lg mb-4"
+                                            data-aos="zoom-in"
+                                            data-aos-duration="1000"JJ
+                                            data-aos-delay=""
+                                        >
+                                            <img src={cards.gambar ? cards.gambar[0].imgUrl : '#'} />
+                                            <div className="p-5">
+                                                <h5 className="mb-2 text-2xl font-bold tracking-tight">
+                                                    {cards.namaLayanan}
+                                                </h5>
 
-                                            <p className="mb-3 font-normal text-slate-800">
-                                                {cards.highlight}
-                                            </p>
-                                            <a
-                                                href="#"
-                                                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#7f7d7a] rounded-lg hover:bg-[#a9a6a2] focus:ring-4 focus:outline-none focus:ring-[#e5e3e0]"
-                                            >
-                                                {cards.nameButton}
-                                                &nbsp;
-                                                <ArrowRightIcon className="w-4" />
-                                            </a>
+                                                <p className="mb-3 font-normal text-slate-800">
+                                                {cards.deskripsi.length > 30
+                                                ? `${cards.deskripsi.substring(0, 30)}...`
+                                                : cards.deskripsi}
+                                                </p>
+                                                <Link
+                                                    href={`/layanan/${cards.slug}`}
+                                                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#7f7d7a] rounded-lg hover:bg-[#a9a6a2] focus:ring-4 focus:outline-none focus:ring-[#e5e3e0]"
+                                                >
+                                                    Selanjutnya
+                                                    &nbsp;
+                                                    <ArrowRightIcon className="w-4" />
+                                                </Link>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            }) : (
+                                filteredLayanan.map((cards, card) => {
+                                    return (
+                                        <div className="flex items-center justify-center">
+                                            <div
+                                                key={card}
+                                                className="max-w-xs bg-white rounded-lg shadow-lg mb-4"
+                                                data-aos="zoom-in"
+                                                data-aos-duration="1000"
+                                                data-aos-delay=""
+                                            >
+                                                <img src={cards.gambar ? cards.gambar[0].imgUrl : '#'} />
+                                                <div className="p-5">
+                                                    <h5 className="mb-2 text-2xl font-bold tracking-tight">
+                                                        {cards.namaLayanan}
+                                                    </h5>
+
+                                                    <p className="mb-3 font-normal text-slate-800">
+                                                    {cards.deskripsi.length > 50
+                                                    ? `${cards.deskripsi.substring(0, 50)}...`
+                                                    : cards.deskripsi}
+                                                    </p>
+                                                    <a
+                                                        href="#"
+                                                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#7f7d7a] rounded-lg hover:bg-[#a9a6a2] focus:ring-4 focus:outline-none focus:ring-[#e5e3e0]"
+                                                    >
+                                                        Selanjutnya
+                                                        &nbsp;
+                                                        <ArrowRightIcon className="w-4" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            )
+                        }
                     </div>
                 </div>
             </div>

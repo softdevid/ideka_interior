@@ -15,6 +15,7 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('idKategori');
             $table->string('judul');
             $table->text('deskripsi');
             $table->string('imgName1');

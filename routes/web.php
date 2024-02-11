@@ -45,9 +45,10 @@ Route::get('/dashboard', function () {
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/layanan', [HomeController::class, 'layanan']);
 Route::get('/profil', [HomeController::class, "tentang_kami"]);
-Route::get('/detail-layanan', [HomeController::class, "detail_layanan"]);
+Route::get('/layanan/{slug}', [HomeController::class, "detail_layanan"]);
 Route::get('/kontak-kami', [HomeController::class, "kontak_kami"]);
 Route::get('/hasil-kerja', [HomeController::class, "hasil_kerja"]);
+Route::get('/hasil-kerja/{judul}', [HomeController::class, "detail_hasil_kerja"]);
 // Route::prefix('/tentang')->group(function () {
 // });
 
@@ -64,5 +65,8 @@ Route::group([
     Route::resource('kategori', KategoriController::class);
     Route::resource('portfolio', PortfolioController::class);
 });
+
+Route::post('/delete-image', [AdminController::class, 'deleteImage']);
+Route::post('/delete-video', [AdminController::class, 'deleteVideo']);
 
 require __DIR__ . '/auth.php';
