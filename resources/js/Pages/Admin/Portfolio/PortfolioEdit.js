@@ -156,7 +156,7 @@ const PortfolioEdit = (props) => {
             <div>
                     <label>Kategori</label>
                     <select onChange={handleChange} name="idKategori" className="p-2 rounded-md block w-full">
-                        <option value="no">Pilih kategori</option>
+                        <option value="">Pilih kategori</option>
                         {props.kategori.length > 0 ? (
                             props.kategori.map((data,i) => {
                                 return <option value={data.id} selected={values.idKategori === data.id}>{data.namaKategori}</option>
@@ -165,6 +165,7 @@ const PortfolioEdit = (props) => {
                             <></>
                         )}
                     </select>
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.idKategori}</span>
                 </div>
                 <div className="my-2">
                     <label>Judul</label>
@@ -173,8 +174,9 @@ const PortfolioEdit = (props) => {
                         type="text"
                         onChange={handleChange}
                         value={values.judul}
-                        className="block w-full p-2 rounded-md"  disabled={values.idKategori === 'no'}
+                        className="block w-full p-2 rounded-md"  disabled={values.idKategori === ''}
                     />
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.judul}</span>
                 </div>
                 <div className="my-2">
                     <label>Deskripsi</label>
@@ -183,8 +185,9 @@ const PortfolioEdit = (props) => {
                         type="text"
                         onChange={handleChange}
                         value={values.deskripsi}
-                        className="block w-full rounded-md" rows={6}  disabled={values.idKategori === 'no'}
+                        className="block w-full rounded-md" rows={6}  disabled={values.idKategori === ''}
                     />
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.deskripsi}</span>
                 </div>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
                     <div>
@@ -196,8 +199,9 @@ const PortfolioEdit = (props) => {
                             <XMarkIcon className="w-6 h-6 p-1" />
                         </button>
                     </div>
-                    : <button onClick={() => uploadImage1()}  disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 1</button> }
+                    : <button onClick={() => uploadImage1()}  disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 1</button> }
                     </div>
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName1}</span>
                     <div>
                     <label>Gambar 2</label>
                     {values.imgName2 ?
@@ -207,8 +211,9 @@ const PortfolioEdit = (props) => {
                             <XMarkIcon className="w-6 h-6 p-1" />
                         </button>
                     </div>
-                    : <button onClick={() => uploadImage2()}  disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 1</button> }
+                    : <button onClick={() => uploadImage2()}  disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 1</button> }
                     </div>
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName2}</span>
                     <div>
                     <label>Gambar 3</label>
                     {values.imgName3 ?
@@ -218,8 +223,9 @@ const PortfolioEdit = (props) => {
                             <XMarkIcon className="w-6 h-6 p-1" />
                         </button>
                     </div>
-                    : <button onClick={() => uploadImage3()} disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 3</button> }
+                    : <button onClick={() => uploadImage3()} disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 3</button> }
                     </div>
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName3}</span>
                     <div>
                     <label>Gambar 4</label>
                     {values.imgName4 ?
@@ -229,8 +235,9 @@ const PortfolioEdit = (props) => {
                             <XMarkIcon className="w-6 h-6 p-1" />
                         </button>
                     </div>
-                    : <button onClick={() => uploadImage4()}  disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 4</button>}
+                    : <button onClick={() => uploadImage4()}  disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 4</button>}
                     </div>
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName4}</span>
                     <div>
                     <label>Gambar 5</label>
                     {values.imgName5 ?
@@ -240,8 +247,9 @@ const PortfolioEdit = (props) => {
                             <XMarkIcon className="w-6 h-6 p-1" />
                         </button>
                     </div>
-                    : <button onClick={() => uploadImage5()}  disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 5</button>}
+                    : <button onClick={() => uploadImage5()}  disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 5</button>}
                     </div>
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName5}</span>
                 </div>
 
             <button

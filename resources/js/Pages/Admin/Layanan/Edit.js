@@ -129,7 +129,7 @@ const Edit = (props) => {
                     </Link>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
                 <div>
                     <label>Kategori</label>
                     <select onChange={handleChange} name="idKategori" className="p-2 rounded-md block w-full">

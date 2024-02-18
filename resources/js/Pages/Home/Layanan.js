@@ -32,31 +32,6 @@ const Layanan = (props) => {
       (layanan) =>
         layanan.idKategori === kategori
     );
-    const cardsData = [
-        {
-            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
-            title: "Testing",
-            highlight:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
-            nameButton: "Lorem Ipsum",
-        },
-        {
-            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
-            title: "Testing",
-            highlight:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
-            nameButton: "Lorem Ipsum",
-        },
-        {
-            img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80",
-            title: "Testing",
-            highlight:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nulla est ad sit natus ab, quos quo numquam eveniet vel inventore facilis a nemo iste!",
-            nameButton: "Lorem Ipsum",
-        },
-    ];
-
-    const [activeTabIndex, setActiveTabIndex] = useState(0);
 
     return (
         <>

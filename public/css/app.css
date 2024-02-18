@@ -1208,6 +1208,10 @@ input[type="range"]::-ms-fill-lower {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
 }
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
@@ -1563,6 +1567,9 @@ input[type="range"]::-ms-fill-lower {
 .cursor-default {
   cursor: default;
 }
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1616,6 +1623,9 @@ input[type="range"]::-ms-fill-lower {
 }
 .justify-between {
   justify-content: space-between;
+}
+.justify-items-center {
+  justify-items: center;
 }
 .gap-2 {
   gap: 0.5rem;
@@ -1844,6 +1854,10 @@ input[type="range"]::-ms-fill-lower {
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 .bg-gray-50 {
   --tw-bg-opacity: 1;
@@ -2410,6 +2424,16 @@ input[type="range"]::-ms-fill-lower {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
+.hover\:border-\[hsl\(40\2c 8\%\2c 92\%\)\]:hover {
+  --tw-border-opacity: 1;
+  border-color: hsl(40 8% 92% / var(--tw-border-opacity));
+}
+
+.hover\:bg-\[\#7f7d7a\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 125 122 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-\[\#a9a6a2\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(169 166 162 / var(--tw-bg-opacity));
@@ -2432,6 +2456,11 @@ input[type="range"]::-ms-fill-lower {
 .hover\:bg-blue-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(195 221 253 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 131 248 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-blue-600:hover {
@@ -2812,6 +2841,10 @@ input[type="range"]::-ms-fill-lower {
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
+  .sm\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2925,12 +2958,20 @@ input[type="range"]::-ms-fill-lower {
     height: 550px;
   }
 
+  .md\:max-w-3xl {
+    max-width: 48rem;
+  }
+
   .md\:max-w-md {
     max-width: 28rem;
   }
 
   .md\:max-w-xl {
     max-width: 36rem;
+  }
+
+  .md\:max-w-4xl {
+    max-width: 56rem;
   }
 
   .md\:translate-x-0 {

@@ -16,7 +16,7 @@ const PortfolioAdd = (props) => {
     const [values, setValues] = useState({
         judul: "",
         deskripsi: "",
-        idKategori: "no",
+        idKategori: "",
         imgName1: "",
         imgUrl1: "",
         imgName2: "",
@@ -133,7 +133,7 @@ const PortfolioAdd = (props) => {
                 <div>
                     <Link
                         href="/admin/portfolio"
-                        className="text-white bg-blue-500 hover:bg-blue-600 rounded-lg p-2"
+                        className="text-white bg-gray-500 hover:bg-gray-600 rounded-lg p-2"
                     >
                         Kembali
                     </Link>
@@ -143,7 +143,7 @@ const PortfolioAdd = (props) => {
             <div>
                     <label>Kategori</label>
                     <select onChange={handleChange} name="idKategori" className="p-2 rounded-md block w-full">
-                        <option value="no">Pilih kategori</option>
+                        <option value="">Pilih kategori</option>
                         {props.kategori.length > 0 ? (
                             props.kategori.map((data,i) => {
                                 return <option value={data.id}>{data.namaKategori}</option>
@@ -152,6 +152,7 @@ const PortfolioAdd = (props) => {
                             <></>
                         )}
                     </select>
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.idKategori}</span>
                 </div>
                 <div className="my-2">
                     <label>Judul</label>
@@ -160,8 +161,9 @@ const PortfolioAdd = (props) => {
                         type="text"
                         onChange={handleChange}
                         value={values.judul}
-                        className="block w-full p-2 rounded-md"  disabled={values.idKategori === 'no'}
+                        className="block w-full p-2 rounded-md"  disabled={values.idKategori === ''}
                     />
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.judul}</span>
                 </div>
                 <div className="my-2">
                     <label>Deskripsi</label>
@@ -170,29 +172,35 @@ const PortfolioAdd = (props) => {
                         type="text"
                         onChange={handleChange}
                         value={values.deskripsi}
-                        className="block w-full rounded-md" rows={6}  disabled={values.idKategori === 'no'}
+                        className="block w-full rounded-md" rows={6}  disabled={values.idKategori === ''}
                     />
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.deskripsi}</span>
                 </div>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
                     <div>
                     <label>Gambar 1</label>
-                    {values.imgName1 ? <img src={values.imgUrl1} className="w-20" /> : <button onClick={() => uploadImage1()}  disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 1</button> }
+                    {values.imgName1 ? <img src={values.imgUrl1} className="w-20" /> : <button onClick={() => uploadImage1()}  disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 1</button> }
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName1}</span>
                     </div>
                     <div>
                     <label>Gambar 2</label>
-                    {values.imgName2 ? <img src={values.imgUrl2} className="w-20" /> : <button onClick={() => uploadImage2()}  disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 1</button> }
+                    {values.imgName2 ? <img src={values.imgUrl2} className="w-20" /> : <button onClick={() => uploadImage2()}  disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 1</button> }
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName2}</span>
                     </div>
                     <div>
                     <label>Gambar 3</label>
-                    {values.imgName3 ? <img src={values.imgUrl3} className="w-20" /> : <button onClick={() => uploadImage3()} disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 3</button> }
+                    {values.imgName3 ? <img src={values.imgUrl3} className="w-20" /> : <button onClick={() => uploadImage3()} disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 3</button> }
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName3}</span>
                     </div>
                     <div>
                     <label>Gambar 4</label>
-                    {values.imgName4 ? <img src={values.imgUrl4} className="w-20" /> : <button onClick={() => uploadImage4()}  disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 4</button>}
+                    {values.imgName4 ? <img src={values.imgUrl4} className="w-20" /> : <button onClick={() => uploadImage4()}  disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 4</button>}
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName4}</span>
                     </div>
                     <div>
                     <label>Gambar 5</label>
-                    {values.imgName5 ? <img src={values.imgUrl5} className="w-20" /> : <button onClick={() => uploadImage5()}  disabled={values.idKategori === 'no'} className="p-2 w-full rounded-md border">Gambar 5</button>}
+                    {values.imgName5 ? <img src={values.imgUrl5} className="w-20" /> : <button onClick={() => uploadImage5()}  disabled={values.idKategori === ''} className="p-2 w-full rounded-md border">Gambar 5</button>}
+                    <span className="text-red-500 text-xs">{props.errors && props.errors.imgName5}</span>
                     </div>
                 </div>
 

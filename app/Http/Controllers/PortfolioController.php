@@ -44,7 +44,17 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->imgName1);
+        $request->validate([
+            'idKategori' => 'required',
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'imgName1' => 'required',
+            'imgUrl1' => 'required',
+        ], [
+            'idKategori.required' => 'Kategori is required',
+            'imgName1.required' => 'image 1 is required',
+        ]);
+
         Portfolio::create([
             'idKategori' => $request->idKategori,
             'judul' => $request->judul,
@@ -99,7 +109,17 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
-        // dd($request->all());
+        $request->validate([
+            'idKategori' => 'required',
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'imgName1' => 'required',
+            'imgUrl1' => 'required',
+        ], [
+            'idKategori.required' => 'Kategori is required',
+            'imgName1.required' => 'image 1 is required',
+        ]);
+
         if ($request->imgName1 != $portfolio->imgName1 && $portfolio->imgName1 != null) {
             Cloudinary::destroy($portfolio->imgName1);
         }

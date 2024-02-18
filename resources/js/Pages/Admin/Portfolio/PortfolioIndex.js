@@ -9,12 +9,15 @@ const PortfolioIndex = (props) => {
 
     const [notif, setNotif] = useState(false)
     const hapus = (id) => {
+        if (confirm("Yakin mau dihapus?")) {
+
             Inertia.delete(`/admin/portfolio/${id}`);
             setNotif(!notif)
-        setTimeout(() => {
-            setNotif(!notif)
-        }, 3000);
+            setTimeout(() => {
+                setNotif(!notif)
+            }, 3000);
         }
+    }
 
         function message() {
             setTimeout(() => {

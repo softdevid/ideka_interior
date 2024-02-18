@@ -41,6 +41,7 @@ class HomeController extends Controller
         return Inertia::render("Home/Detail", [
             "title" => "Detail Layanan | Interior House",
             'layanan' => $layanan::with('gambar')->where('slug', $slug)->first(),
+            'profil' => Profil::first(),
         ]);
     }
     public function kontak_kami()
@@ -55,6 +56,15 @@ class HomeController extends Controller
             "title" => "Hasil Kerja | Interior House",
             'portfolio' => Portfolio::with('kategori')->get(),
             'kategori' => Kategori::all(),
+        ]);
+    }
+
+    public function detail_hasil_kerja($judul)
+    {
+        return Inertia::render('Home/DetailPortfolio', [
+            'title' => 'Detail Portfolio',
+            'portfolio' => Portfolio::where('judul', $judul)->first(),
+            'profil' => Profil::first(),
         ]);
     }
 }
